@@ -83,31 +83,16 @@ export function DevManagementPanel({ product }: Props) {
 
       {/* Firmware Update */}
       <div className={`rounded-xl border p-4 ${tk.panel}`}>
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke={tk.accentColor}
-              strokeWidth="2"
-            >
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-            </svg>
-            <h3 className={`text-sm font-semibold ${tk.tp}`}>
-              Firmware Update
-            </h3>
+        <Accordion title="Firmware Update" defaultOpen={false}>
+          <div className="space-y-2">
+            {fw.title && (
+              <p className={`text-xs font-medium mb-1 mt-2 ${tk.ts}`}>
+                {fw.title}
+              </p>
+            )}
+            <StepList steps={fw.steps} />
           </div>
-        </div>
-        <div className="space-y-2">
-          {fw.title && (
-            <p className={`text-xs font-medium mb-1 mt-2 ${tk.ts}`}>
-              {fw.title}
-            </p>
-          )}
-          <StepList steps={fw.steps} />
-        </div>
+        </Accordion>
       </div>
 
       {/* Quick Reference */}
