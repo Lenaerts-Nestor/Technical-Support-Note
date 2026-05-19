@@ -275,10 +275,13 @@ export const PRODUCTS: Record<string, Product> = {
     firmwareUpdate: {
       title: "Firmware Update Procedure",
       steps: [
-        "Download the latest firmware from the official Crestron website.",
-        "Connect to the panel via Crestron Toolbox and navigate to the Firmware Update section.",
-        "Select the downloaded firmware file and initiate the update process.",
-        "Do not power off or disconnect during the update. The panel will reboot automatically when complete.",
+        "Download the latest firmware PUF (package update file) from the TSW-70 Series product page or www.crestron.com/Support/Resource-Library.",
+        "Access the web configuration interface by entering the panel's IP address in a browser",
+        "From the top-right Action drop-down menu, select Update Firmware. The Firmware Upgrade dialog box will open.",
+        "Select Browse, then navigate to the firmware PUF on your computer",
+        "Select the PUF file and click Open.",
+        "Click Load to upload the PUF to the touch screen. Upload progress is shown in the dialog.",
+        "Once the firmware upgrade is complete, click OK. The panel will reboot. Do not power off or disconnect during the update.",
       ],
     },
     techTips: [
@@ -307,9 +310,33 @@ export const PRODUCTS: Record<string, Product> = {
       {
         problem: "Blank / white screen after firmware update",
         solutions: [
-          "Perform physical pinhole reset (10 consecutive times).",
+          "Perform physical pinhole reset (recovery procedure).",
           "Re-upload the VTP project file via VT Pro-e.",
           "Verify IP table registration on the control processor.",
+        ],
+      },
+      {
+        problem: "Panel stuck on Crestron swirl / boot loop",
+        solutions: [
+          "Attempt the recovery procedure (11x pinhole resets) or second method ",
+          "Try updating firmware via Web UI if panel reaches maintenance screen.",
+          "If issue persists after recovery, proceed with RMA.",
+        ],
+      },
+      {
+        problem: "Black screen / unresponsive to touch",
+        solutions: [
+          "Power cycle the panel by disconnecting PoE",
+          "Perform the recovery procedures",
+          "If no change, initiate an RMA.",
+        ],
+      },
+      {
+        problem: "Panel locking up / no communication",
+        solutions: [
+          "Update firmware to the latest available version / reapply the firmware",
+          "Reboot the panel and control processor.",
+          "Run the Information Gathering Tool and review logs.",
         ],
       },
       {
@@ -318,6 +345,14 @@ export const PRODUCTS: Record<string, Product> = {
           "Confirm SSID and password are correct under Setup > Wi-Fi.",
           "Ensure the AP supports 802.11ac or the matching spec band.",
           "Disable and re-enable Wi-Fi adapter on the panel.",
+        ],
+      },
+      {
+        problem: "Screen flickering",
+        solutions: [
+          "Verify PoE power delivery meets minimum requirements (25.5W)",
+          "Update firmware to the latest version",
+          "If flickering persists after firmware update, initiate RMA",
         ],
       },
     ],
@@ -333,6 +368,12 @@ export const PRODUCTS: Record<string, Product> = {
         title: "Crestron TSW-1070 recovery procedure",
         url: "https://community.crestron.com/s/article/id-1001577",
         description: "Recovery procedure from community crestron post",
+      },
+      {
+        title: "Crestron TSW-1070 Firmware Update Guide",
+        url: "https://www.crestron.com/getmedia/d86b9173-735e-4bfd-b9ba-9ad5175287d4/mg_pm_tsw-70-series#page=192",
+        description:
+          "Official firmware update instructions from the TSW-70 Series manual.",
       },
     ],
   },

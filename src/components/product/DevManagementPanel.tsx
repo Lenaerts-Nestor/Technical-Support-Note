@@ -100,6 +100,14 @@ export function DevManagementPanel({ product }: Props) {
             </h3>
           </div>
         </div>
+        <div className="space-y-2">
+          {fw.title && (
+            <p className={`text-xs font-medium mb-1 mt-2 ${tk.ts}`}>
+              {fw.title}
+            </p>
+          )}
+          <StepList steps={fw.steps} />
+        </div>
       </div>
 
       {/* Quick Reference */}

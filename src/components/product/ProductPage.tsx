@@ -1,51 +1,51 @@
-import { useState } from 'react'
-import { PRODUCTS } from '../../data/products'
-import { DevManagementPanel } from './DevManagementPanel'
-import { ProductInfoTab } from './tabs/ProductInfoTab'
+import { useState } from "react";
+import { PRODUCTS } from "../../data/products";
+import { DevManagementPanel } from "./DevManagementPanel";
+import { ProductInfoTab } from "./tabs/ProductInfoTab";
 import {
   TechTipsTab,
   CommonProblemsTab,
   MyNotesTab,
   LinksTab,
-} from './tabs/OtherTabs'
-import { useTk } from '../../hooks/useThemeTokens'
+} from "./tabs/OtherTabs";
+import { useTk } from "../../hooks/useThemeTokens";
 
 const TABS = [
-  { id: 'info', label: 'Product Information' },
-  { id: 'tips', label: 'Tech Tips' },
-  { id: 'problems', label: 'Common Problems' },
-  { id: 'notes', label: 'My Notes' },
-  { id: 'links', label: 'Links' },
-] as const
+  { id: "info", label: "Product Information" },
+  { id: "tips", label: "Tech Tips" },
+  { id: "problems", label: "Common Problems" },
+  { id: "notes", label: "My Notes" },
+  { id: "links", label: "Links" },
+] as const;
 
-type TabId = (typeof TABS)[number]['id']
+type TabId = (typeof TABS)[number]["id"];
 
 interface Props {
-  productId: string
-  notes: string
-  onNotes: (value: string) => void
+  productId: string;
+  notes: string;
+  onNotes: (value: string) => void;
 }
 
 export function ProductPage({ productId, notes, onNotes }: Props) {
-  const [activeTab, setActiveTab] = useState<TabId>('info')
-  const { tk } = useTk()
-  const product = PRODUCTS[productId]
-  if (!product) return null
+  const [activeTab, setActiveTab] = useState<TabId>("info");
+  const { tk } = useTk();
+  const product = PRODUCTS[productId];
+  if (!product) return null;
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'info':
-        return <ProductInfoTab product={product} />
-      case 'tips':
-        return <TechTipsTab product={product} />
-      case 'problems':
-        return <CommonProblemsTab product={product} />
-      case 'notes':
-        return <MyNotesTab notes={notes} onNotes={onNotes} />
-      case 'links':
-        return <LinksTab product={product} />
+      case "info":
+        return <ProductInfoTab product={product} />;
+      case "tips":
+        return <TechTipsTab product={product} />;
+      case "problems":
+        return <CommonProblemsTab product={product} />;
+      case "notes":
+        return <MyNotesTab notes={notes} onNotes={onNotes} />;
+      case "links":
+        return <LinksTab product={product} />;
     }
-  }
+  };
 
   return (
     <div className="flex gap-5">
@@ -53,7 +53,9 @@ export function ProductPage({ productId, notes, onNotes }: Props) {
       <div className="flex-1 min-w-0">
         {/* Header */}
         <div className="mb-5">
-          <h1 className={`text-2xl font-bold tracking-tight ${tk.tp}`}>{product.name}</h1>
+          <h1 className={`text-2xl font-bold tracking-tight ${tk.tp}`}>
+            {product.name}
+          </h1>
           <p className={`text-sm mt-0.5 ${tk.ts}`}>{product.subtitle}</p>
         </div>
 
@@ -77,9 +79,9 @@ export function ProductPage({ productId, notes, onNotes }: Props) {
       </div>
 
       {/* Right sidebar — Device Management */}
-      <div className="w-60 flex-shrink-0">
+      <div className="w-80 flex-shrink-0">
         <DevManagementPanel product={product} />
       </div>
     </div>
-  )
+  );
 }
