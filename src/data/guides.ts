@@ -7,11 +7,11 @@ import simplWindowsOpenScreenshot from '../public/guide/npf-first-pic.png'
 // ============================================================
 
 export const GUIDES: Record<string, Guide> = {
-  'simpl-windows-upload': {
-    id: 'simpl-windows-upload',
-    name: 'Upload Project via SIMPL Windows',
-    subtitle: 'Step-by-step guide for uploading control system programs',
-    initials: 'SW',
+  'npf-procedure': {
+    id: 'npf-procedure',
+    name: 'NPF Procedure',
+    subtitle: 'Step-by-step guide for the NPF procedure',
+    initials: 'NPF',
     color: '#0369a1',
     difficulty: 'Beginner',
     timeEstimate: '10-15 min',
@@ -19,22 +19,33 @@ export const GUIDES: Record<string, Guide> = {
       {
         id: 'preparation',
         title: 'Preparation',
-        description: 'Before you begin, ensure you have the following ready',
+        description: 'you will recieve a NPF post on your case from service engineering. ',
         steps: [
           {
-            id: 'open-simpl',
-            title: 'Open SIMPL Windows',
+            id: 'read-post',
+            title: 'Read the NPF Post',
             description:
-              'Launch SIMPL Windows from the Start menu or desktop shortcut. The application opens to the main workspace with a blank or previously loaded project.',
+              'Review the NPF post received from service engineering to understand the required actions and specifications.',
             imageSrc: simplWindowsOpenScreenshot,
             tip: null,
           },
           {
-            id: 'open-project',
-            title: 'Open the Project File',
+            id: 'send email to client',
+            title: 'Send Email to Client',
+            bigText: `
+Hello [Client Name], 
+
+The unit with reference RMA ###### / SN ###### has been tested at our technician’s lab but unfortunately we have not been able to duplicate the reported issue. 
+In order to identify the issue and repair accordingly, please answer the below questions:
+
+If you have additional information pertaining to this RMA, feel free to reply directly to this email to have this information included.
+Alternatively, please send us your approval to return the unit in its original state.Should you have any other query, please do not hesitate to contact us. 
+
+Thank you.
+            `,
             description:
-              'Click File > Open or use the recent projects list to load your .smw file. The project will display the control system logic in the main workspace.',
-            tip: 'Always work with the most recent version of your project file to avoid overwriting newer changes.',
+              'Once you have reviewed the NPF post, send an email to the client outlining the next steps and any required actions.',
+            tip: 'Replace the: RMA####### with RMA number of the RMA highlighted in the post SN ###### With the serial number of the unit highlighted in the post',
           },
         ],
       },

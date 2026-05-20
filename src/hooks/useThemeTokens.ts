@@ -35,6 +35,9 @@ export function buildTokens(dark: boolean) {
     tmpl: dark
       ? "bg-[#171717] border-[#262626]"
       : "bg-[#ffffff] border-[#cfcfcf]",
+    guideText: dark
+      ? "bg-[#171717] border-[#262626] text-[#ffffff]"
+      : "bg-[#f8f8f8] border-[#bcbcbc] text-[#111111]",
 
     // ── Text ─────────────────────────────────────────────────
     tp: dark ? "text-[#ffffff]" : "text-[#000000]",

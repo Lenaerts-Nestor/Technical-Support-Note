@@ -31,7 +31,7 @@ export const NAV: NavSection[] = [
   {
     section: 'STEP-BY-STEP GUIDES',
     items: [
-      { id: 'simpl-windows-upload', label: 'SIMPL Windows Upload', type: 'guide' },
+      { id: 'npf-procedure', label: 'NPF Procedure', type: 'guide' },
       { id: 'vt-pro-e-upload', label: 'VT Pro-e Upload', type: 'guide' },
       { id: 'toolbox-diagnostics', label: 'Toolbox Diagnostics', type: 'guide' },
     ],

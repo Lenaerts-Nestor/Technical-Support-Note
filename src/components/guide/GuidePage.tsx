@@ -6,6 +6,7 @@ import { useTk } from '../../hooks/useThemeTokens'
 
 function StepCard({ step, num }: { step: GuideStep; num: number }) {
   const { tk } = useTk()
+  const copyText = step.bigText ?? step.description
   return (
     <div className={`rounded-xl border ${tk.panel}`}>
       {/* Step header */}
@@ -18,42 +19,45 @@ function StepCard({ step, num }: { step: GuideStep; num: number }) {
           </span>
           <span className={`text-sm font-semibold ${tk.tp}`}>{step.title}</span>
         </div>
-        <CopyButton text={step.description} />
+        <CopyButton text={copyText} />
       </div>
 
-      {step.imageSrc ? (
-        <div className="mx-4 mb-3 rounded-lg overflow-hidden border border-[#cfcfcf] dark:border-[#262626] bg-white">
-          <img
-            src={step.imageSrc}
-            alt={`${step.title} screenshot`}
-            className="w-full h-auto object-contain max-h-[70vh]"
-            loading="lazy"
-          />
-        </div>
-      ) : (
-        <div
-          className={`mx-4 mb-3 rounded-lg h-28 flex flex-col items-center justify-center ${tk.placeholder}`}
-        >
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="mb-1.5"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
-          <span className="text-[11px]">Screenshot placeholder</span>
-        </div>
-      )}
-
       {/* Description + optional tip */}
-      <div className="px-4 pb-4">
+      <div className="px-4 pb-4 space-y-3">
         <p className={`text-sm leading-relaxed ${tk.ts}`}>{step.description}</p>
+        {step.bigText ? (
+          <div className={`rounded-lg border p-4 text-sm leading-relaxed whitespace-pre-wrap ${tk.guideText}`}>
+            {step.bigText}
+          </div>
+        ) : step.imageSrc ? (
+          <div className="rounded-lg overflow-hidden border border-[#cfcfcf] dark:border-[#262626] bg-white">
+            <img
+              src={step.imageSrc}
+              alt={`${step.title} screenshot`}
+              className="w-full h-auto object-contain max-h-[70vh]"
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <div
+            className={`rounded-lg h-28 flex flex-col items-center justify-center ${tk.placeholder}`}
+          >
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              className="mb-1.5"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            <span className="text-[11px]">Screenshot placeholder</span>
+          </div>
+        )}
         {step.tip && (
           <div className={`flex gap-2 mt-3 rounded-lg border p-3 ${tk.tip}`}>
             <svg
