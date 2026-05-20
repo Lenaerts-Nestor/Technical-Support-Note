@@ -6,9 +6,17 @@ import type { NavSection } from '../types'
 // ============================================================
 
 export const NAV: NavSection[] = [
+ 
   {
     section: 'REMOTE CONTROL',
     items: [{ id: 'tsr-310', label: 'TSR-310', type: 'product' }],
+  },
+  {
+    section: 'Processors',
+    items: [
+      { id: 'cp4', label: 'CP4', type: 'product' },
+
+    ],
   },
   {
     section: 'TOUCH PANELS',

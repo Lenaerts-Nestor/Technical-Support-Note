@@ -80,7 +80,7 @@ export interface Product {
   subtitle: string;
   partNumber: string;
   docsUrl: string;
-  category: "remote-control" | "touch-panels";
+  category: "remote-control" | "touch-panels" | "processors" | "other";
   description: string;
   specs: SpecSection[];
   quickRef: QuickRefItem[];
