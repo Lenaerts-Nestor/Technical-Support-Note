@@ -403,4 +403,54 @@ Gracias por contactar con Crestron True Blue Support.`,
       },
     ],
   },
+
+   "associate-account-steps": {
+    id: "associate-account-steps",
+    name: "Associate-account",
+    subtitle: "Follow-up templates for how to associate an account for a client",
+    initials: "FU",
+    color: "#7c3aed",
+    sections: [
+      {
+        id: "associate-account",
+        title: "associate-account-steps",
+        icon: "followup",
+        description: "Use this after the first reminder",
+        templates: [
+          {
+            language: "English",
+            content: `	
+We noticed that currently your email address ##### is not associated with a valid account number on our website.To gain access to support and RMA resources identification is required.
+	 
+Please register the email address and connect your customer number, this will only have to be done once.
+
+Instructions to set up the account and have your customer number approved by your company admin can be found here:
+https://community.crestron.com/s/article/id-1000579`,
+          },
+          {
+            language: "Nederlands",
+            content: `
+We hebben gemerkt dat uw e-mailadres ##### momenteel niet gekoppeld is aan een geldig accountnummer op onze website.Om toegang te krijgen tot support- en RMA-resources is identificatie vereist.
+
+Gelieve het e-mailadres te registreren en uw klantnummer te koppelen; dit hoeft slechts één keer te gebeuren.
+Instructies om een account aan te maken en uw klantnummer door uw bedrijfsbeheerder te laten goedkeuren, vindt u hier:
+https://community.crestron.com/s/article/id-1000579
+            `,
+          },
+          {
+            language: "Español",
+            content: `
+Hemos notado que actualmente su dirección de correo electrónico ##### no está asociada con un número de cuenta válido en nuestro sitio web.Para obtener acceso a soporte y recursos de RMA, se requiere identificación.
+
+Por favor, registre la dirección de correo electrónico y conecte su número de cliente; esto solo tendrá que hacerse una vez.
+Las instrucciones para configurar la cuenta y hacer que su número de cliente sea aprobado por el administrador de su empresa se pueden encontrar aquí:
+https://community.crestron.com/s/article/id-1000579
+            `,
+          },
+        ],
+      },
+    
+    ],
+  },
+
 };

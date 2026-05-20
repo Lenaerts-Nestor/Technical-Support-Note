@@ -24,6 +24,7 @@ export const NAV: NavSection[] = [
       { id: 'mail-structure', label: "Mail Structure and Extra's", type: 'resource' },
       { id: 'daily-mails', label: 'Daily Mails Response', type: 'resource' },
       { id: 'follow-up-cases', label: 'Follow Up Cases', type: 'resource' },
+      { id: 'associate-account-steps', label: 'Associate Account Steps', type: 'resource' },
     ],
   },
   {
