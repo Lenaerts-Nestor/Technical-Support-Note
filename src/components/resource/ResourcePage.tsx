@@ -44,12 +44,14 @@ function SectionTable({ table }: { table: ResourceTable }) {
   const { tk } = useTk()
 
   return (
-    <div className={`rounded-xl border overflow-hidden ${tk.tmpl}`}>
-      <div className={`px-3 py-2 border-b text-sm font-semibold ${tk.tp}`}>{table.title}</div>
+    <div className={`rounded-xl border overflow-hidden ${tk.tmpl} ${tk.tableBorder}`}>
+      <div className={`px-3 py-2 border-b text-sm font-semibold ${tk.tp} ${tk.tableBorder}`}>
+        {table.title}
+      </div>
       <table className="w-full text-xs">
         <tbody>
           {table.rows.map((row, ri) => (
-            <tr key={ri} className={ri === table.rows.length - 1 ? '' : `border-b ${tk.panel}`}>
+            <tr key={ri} className={ri === table.rows.length - 1 ? '' : `border-b ${tk.tableRow}`}>
               <td className={`w-1/2 px-3 py-2 align-top font-medium ${tk.tp}`}>{row.label}</td>
               <td className={`px-3 py-2 align-top ${tk.ts}`}>{row.value}</td>
             </tr>

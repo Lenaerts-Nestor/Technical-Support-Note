@@ -12,7 +12,7 @@ import { useDark } from "../context/ThemeContext";
 // LIGHT MODE — "High-Contrast Paper"
 //   Backgrounds : #fafafa (app) · #ffffff (sidebar/panels)
 //   Text        : #000000 (primary - pure black) · #525252 (secondary) · #8c8c8c (muted)
-//   Borders     : #e5e5e5
+//   Borders     : #cfcfcf
 //   Accent      : #059669 (deep emerald)
 // ============================================================
 
@@ -22,19 +22,19 @@ export function buildTokens(dark: boolean) {
     app: dark ? "bg-[#0a0a0a]" : "bg-[#fafafa]",
     sidebar: dark
       ? "bg-[#171717] border-[#262626]"
-      : "bg-[#ffffff] border-[#e5e5e5]",
+      : "bg-[#ffffff] border-[#cfcfcf]",
     topbar: dark
       ? "bg-[#171717] border-[#262626]"
-      : "bg-[#ffffff] border-[#e5e5e5]",
+      : "bg-[#ffffff] border-[#cfcfcf]",
     panel: dark
       ? "bg-[#171717] border-[#262626]"
-      : "bg-[#ffffff] border-[#e5e5e5]",
+      : "bg-[#ffffff] border-[#cfcfcf]",
     surface: dark
       ? "bg-[#262626] border-[#3a3a3a]"
-      : "bg-[#f5f5f5] border-[#e5e5e5]",
+      : "bg-[#f5f5f5] border-[#cfcfcf]",
     tmpl: dark
       ? "bg-[#171717] border-[#262626]"
-      : "bg-[#ffffff] border-[#e5e5e5]",
+      : "bg-[#ffffff] border-[#cfcfcf]",
 
     // ── Text ─────────────────────────────────────────────────
     tp: dark ? "text-[#ffffff]" : "text-[#000000]",
@@ -42,13 +42,15 @@ export function buildTokens(dark: boolean) {
     tx: dark ? "text-[#737373]" : "text-[#8c8c8c]",
 
     // ── Borders / Dividers ───────────────────────────────────
-    brd: dark ? "border-[#262626]" : "border-[#e5e5e5]",
-    row: dark ? "border-[#171717]" : "border-[#f5f5f5]",
+    brd: dark ? "border-[#262626]" : "border-[#cfcfcf]",
+    row: dark ? "border-[#171717]" : "border-[#e5e5e5]",
+    tableBorder: dark ? "border-[#262626]" : "border-[#cfcfcf]",
+    tableRow: dark ? "border-[#262626]" : "border-[#d9d9d9]",
 
     // ── Form inputs ──────────────────────────────────────────
     inp: dark
       ? "bg-[#0a0a0a] border-[#262626] text-[#ffffff] placeholder:text-[#737373]"
-      : "bg-[#ffffff] border-[#cccccc] text-[#000000] placeholder:text-[#8c8c8c]",
+      : "bg-[#ffffff] border-[#c6c6c6] text-[#000000] placeholder:text-[#8c8c8c]",
 
     // ── Sidebar navigation ───────────────────────────────────
     navI: dark
@@ -70,7 +72,7 @@ export function buildTokens(dark: boolean) {
     // ── Badges ───────────────────────────────────────────────
     bdg: dark
       ? "bg-[#262626] text-[#ffffff] border border-[#3a3a3a]"
-      : "bg-[#e5e5e5] text-[#000000] border border-[#cccccc]",
+      : "bg-[#e5e5e5] text-[#000000] border border-[#c6c6c6]",
     bdgG: dark
       ? "bg-[#064e3b] text-[#34d399] border border-[#047857]"
       : "bg-[#d1fae5] text-[#065f46] border border-[#6ee7b7]",
@@ -94,17 +96,17 @@ export function buildTokens(dark: boolean) {
     // ── Accordion ────────────────────────────────────────────
     acc: dark
       ? "bg-[#171717] border border-[#262626] rounded-lg"
-      : "bg-[#ffffff] border border-[#e5e5e5] rounded-lg",
+      : "bg-[#ffffff] border border-[#cfcfcf] rounded-lg",
 
     // ── Screenshot placeholder ───────────────────────────────
     placeholder: dark
       ? "bg-[#0a0a0a] text-[#737373] border border-dashed border-[#262626]"
-      : "bg-[#fafafa] text-[#8c8c8c] border border-dashed border-[#cccccc]",
+      : "bg-[#fafafa] text-[#8c8c8c] border border-dashed border-[#bfbfbf]",
 
     // ── Textarea (My Notes) ──────────────────────────────────
     textarea: dark
       ? "bg-[#0a0a0a] border-[#262626] text-[#ffffff] placeholder:text-[#737373]"
-      : "bg-[#ffffff] border-[#cccccc] text-[#000000] placeholder:text-[#8c8c8c]",
+      : "bg-[#ffffff] border-[#c6c6c6] text-[#000000] placeholder:text-[#8c8c8c]",
 
     // ── Generic hover ────────────────────────────────────────
     hover: dark ? "hover:bg-[#262626]" : "hover:bg-[#f5f5f5]",
