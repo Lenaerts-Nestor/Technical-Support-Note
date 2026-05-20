@@ -59,14 +59,14 @@ export function ProductInfoTab({ product }: { product: Product }) {
             </button>
 
             {isOpen && (
-              <div className="px-4">
+              <div className="px-6">
                 {sec.fields.map((f, fi) => (
                   <div
                     key={fi}
-                    className={`flex justify-between items-center py-2.5 text-sm ${fi < sec.fields.length - 1 ? `border-b ${tk.row}` : ""}`}
+                    className={`flex justify-between items-start gap-4 py-3 text-sm ${fi < sec.fields.length - 1 ? `border-b ${tk.row}` : ""}`}
                   >
-                    <span className={tk.ts}>{f.label}</span>
-                    <span className={`font-medium ${tk.tp}`}>{f.value}</span>
+                    <span className={`shrink-0 ${tk.ts}`}>{f.label}</span>
+                    <span className={`font-medium text-right leading-relaxed ${tk.tp}`}>{f.value}</span>
                   </div>
                 ))}
               </div>
