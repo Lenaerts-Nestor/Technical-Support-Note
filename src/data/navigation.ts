@@ -52,7 +52,10 @@ export const NAV: NavSection[] = [
   },
   {
     section: "NVX",
-    items: [{ id: "dm-nvx-360", label: "DM-NVX-360", type: "product" }],
+    items: [
+      { id: "dm-nvx-360", label: "DM-NVX-360", type: "product" },
+      { id: "dm-nvx-e20", label: "DM-NVX-E20", type: "product" },
+    ],
   },
   {
     section: "TOUCH PANELS",
