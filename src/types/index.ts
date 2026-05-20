@@ -100,6 +100,16 @@ export interface EmailTemplate {
   content: string;
 }
 
+export interface ResourceTableRow {
+  label: string;
+  value: string;
+}
+
+export interface ResourceTable {
+  title: string;
+  rows: ResourceTableRow[];
+}
+
 export type ResourceSectionIcon = "mail" | "followup";
 
 export interface ResourceSection {
@@ -107,7 +117,8 @@ export interface ResourceSection {
   title: string;
   icon: ResourceSectionIcon;
   description: string;
-  templates: EmailTemplate[];
+  templates?: EmailTemplate[];
+  tables?: ResourceTable[];
 }
 
 export interface Resource {

@@ -1,4 +1,4 @@
-import type { EmailTemplate, ResourceSection } from '../../types'
+import type { EmailTemplate, ResourceSection, ResourceTable } from '../../types'
 import { RESOURCES } from '../../data/resources'
 import { CopyButton } from '../shared/CopyButton'
 import { useTk } from '../../hooks/useThemeTokens'
@@ -40,6 +40,26 @@ function SectionIcon({ icon }: { icon: ResourceSection['icon'] }) {
   )
 }
 
+function SectionTable({ table }: { table: ResourceTable }) {
+  const { tk } = useTk()
+
+  return (
+    <div className={`rounded-xl border overflow-hidden ${tk.tmpl}`}>
+      <div className={`px-3 py-2 border-b text-sm font-semibold ${tk.tp}`}>{table.title}</div>
+      <table className="w-full text-xs">
+        <tbody>
+          {table.rows.map((row, ri) => (
+            <tr key={ri} className={ri === table.rows.length - 1 ? '' : `border-b ${tk.panel}`}>
+              <td className={`w-1/2 px-3 py-2 align-top font-medium ${tk.tp}`}>{row.label}</td>
+              <td className={`px-3 py-2 align-top ${tk.ts}`}>{row.value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 export function ResourcePage({ resourceId }: { resourceId: string }) {
   const { tk } = useTk()
   const resource = RESOURCES[resourceId]
@@ -76,12 +96,19 @@ export function ResourcePage({ resourceId }: { resourceId: string }) {
               </div>
             </div>
 
-            {/* Templates — 3-column grid */}
-            <div className="grid grid-cols-3 gap-3">
-              {sec.templates.map((tmpl, ti) => (
-                <TemplateCard key={ti} tmpl={tmpl} />
-              ))}
-            </div>
+            {sec.tables ? (
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                {sec.tables.map((table, ti) => (
+                  <SectionTable key={ti} table={table} />
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-3">
+                {sec.templates?.map((tmpl, ti) => (
+                  <TemplateCard key={ti} tmpl={tmpl} />
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
