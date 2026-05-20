@@ -1,4 +1,5 @@
 import type { Guide } from '../types'
+import simplWindowsOpenScreenshot from '../public/guide/npf-first-pic.png'
 
 // ============================================================
 // ADD NEW GUIDES HERE — do NOT touch UI components.
@@ -25,6 +26,7 @@ export const GUIDES: Record<string, Guide> = {
             title: 'Open SIMPL Windows',
             description:
               'Launch SIMPL Windows from the Start menu or desktop shortcut. The application opens to the main workspace with a blank or previously loaded project.',
+            imageSrc: simplWindowsOpenScreenshot,
             tip: null,
           },
           {

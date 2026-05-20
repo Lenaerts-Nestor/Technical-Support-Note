@@ -21,25 +21,35 @@ function StepCard({ step, num }: { step: GuideStep; num: number }) {
         <CopyButton text={step.description} />
       </div>
 
-      {/* Screenshot placeholder */}
-      <div
-        className={`mx-4 mb-3 rounded-lg h-28 flex flex-col items-center justify-center ${tk.placeholder}`}
-      >
-        <svg
-          width="26"
-          height="26"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className="mb-1.5"
+      {step.imageSrc ? (
+        <div className="mx-4 mb-3 rounded-lg overflow-hidden border border-[#cfcfcf] dark:border-[#262626] bg-white">
+          <img
+            src={step.imageSrc}
+            alt={`${step.title} screenshot`}
+            className="w-full h-auto object-contain max-h-[70vh]"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div
+          className={`mx-4 mb-3 rounded-lg h-28 flex flex-col items-center justify-center ${tk.placeholder}`}
         >
-          <rect x="3" y="3" width="18" height="18" rx="2" />
-          <circle cx="8.5" cy="8.5" r="1.5" />
-          <polyline points="21 15 16 10 5 21" />
-        </svg>
-        <span className="text-[11px]">Screenshot placeholder</span>
-      </div>
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="mb-1.5"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg>
+          <span className="text-[11px]">Screenshot placeholder</span>
+        </div>
+      )}
 
       {/* Description + optional tip */}
       <div className="px-4 pb-4">

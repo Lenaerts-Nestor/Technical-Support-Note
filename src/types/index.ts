@@ -141,6 +141,8 @@ export interface GuideStep {
   id: string;
   title: string;
   description: string;
+  /** optional screenshot shown above description */
+  imageSrc?: string;
   /** null = no tip for this step */
   tip: string | null;
 }
