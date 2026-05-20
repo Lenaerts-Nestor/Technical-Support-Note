@@ -1,31 +1,17 @@
-import type { NavSection } from "../types";
+import type { NavItem, NavSection } from "../types";
 
 // ============================================================
 // ADD NEW NAV ITEMS HERE when you add a new product/resource/guide.
 // type must match the key used in PRODUCTS, RESOURCES, or GUIDES.
 // ============================================================
 
+// Pinned items rendered at the very top of the sidebar (no section header)
+export const PINNED: NavItem[] = [
+  { id: "overview", label: "Overview", type: "overview" },
+  { id: "voice-call", label: "Voice Call", type: "voicecall" },
+];
+
 export const NAV: NavSection[] = [
-  {
-    section: "REMOTE CONTROL",
-    items: [{ id: "tsr-310", label: "TSR-310", type: "product" }],
-  },
-  {
-    section: "Processors",
-    items: [{ id: "cp4", label: "CP4", type: "product" }],
-  },
-  {
-    section: "NVX",
-    items: [{ id: "dm-nvx-360", label: "DM-NVX-360", type: "product" }],
-  },
-  {
-    section: "TOUCH PANELS",
-    items: [
-      { id: "tsw-1070", label: "TSW-1070", type: "product" },
-      { id: "tsw-770", label: "TSW-770", type: "product" },
-      { id: "tsw-570", label: "TSW-570", type: "product" },
-    ],
-  },
   {
     section: "RESOURCES",
     items: [
@@ -54,6 +40,26 @@ export const NAV: NavSection[] = [
         label: "Toolbox Diagnostics",
         type: "guide",
       },
+    ],
+  },
+  {
+    section: "REMOTE CONTROL",
+    items: [{ id: "tsr-310", label: "TSR-310", type: "product" }],
+  },
+  {
+    section: "Processors",
+    items: [{ id: "cp4", label: "CP4", type: "product" }],
+  },
+  {
+    section: "NVX",
+    items: [{ id: "dm-nvx-360", label: "DM-NVX-360", type: "product" }],
+  },
+  {
+    section: "TOUCH PANELS",
+    items: [
+      { id: "tsw-1070", label: "TSW-1070", type: "product" },
+      { id: "tsw-770", label: "TSW-770", type: "product" },
+      { id: "tsw-570", label: "TSW-570", type: "product" },
     ],
   },
 ];

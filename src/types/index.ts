@@ -2,7 +2,7 @@
 // SHARED
 // ============================================================
 
-export type ItemType = "product" | "resource" | "guide";
+export type ItemType = "product" | "resource" | "guide" | "overview" | "voicecall";
 
 export interface NavItem {
   id: string;

@@ -8,6 +8,7 @@ import { ProductPage } from './components/product/ProductPage'
 import { ResourcePage } from './components/resource/ResourcePage'
 import { GuidePage } from './components/guide/GuidePage'
 import { WelcomePage } from './components/WelcomePage'
+import { VoiceCallPage } from './components/VoiceCallPage'
 
 // Inner component so it can consume ThemeContext
 function AppInner() {
@@ -27,7 +28,8 @@ function AppInner() {
   }, [])
 
   const renderContent = () => {
-    if (!selected) return <WelcomePage />
+    if (!selected || selected.type === 'overview') return <WelcomePage />
+    if (selected.type === 'voicecall') return <VoiceCallPage key={selected.id} />
     if (selected.type === 'product') {
       return (
         <ProductPage

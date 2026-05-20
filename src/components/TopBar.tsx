@@ -19,7 +19,11 @@ export function TopBar({ selected }: Props) {
         ? 'Resources'
         : selected?.type === 'guide'
           ? 'Guides'
-          : null
+          : selected?.type === 'overview'
+            ? null
+            : selected?.type === 'voicecall'
+              ? null
+              : null
 
   const partNumber = selected?.type === 'product' ? PRODUCTS[selected.id]?.partNumber : null
   const docsUrl = selected?.type === 'product' ? PRODUCTS[selected.id]?.docsUrl : null
@@ -45,6 +49,8 @@ export function TopBar({ selected }: Props) {
             </svg>
             <span className={tk.tp}>{selected?.label}</span>
           </>
+        ) : selected?.type === 'voicecall' || selected?.type === 'overview' ? (
+          <span className={tk.tp}>{selected.label}</span>
         ) : (
           <span>Support Hub</span>
         )}
