@@ -1,4 +1,4 @@
-import { PRODUCTS } from "../data/products";
+import { PRODUCTS } from "../data/products/index";
 import { RESOURCES } from "../data/resources";
 import { GUIDES } from "../data/guides";
 import { useTk } from "../hooks/useThemeTokens";

@@ -1,6 +1,6 @@
 import type { NavItem } from '../types'
 import { NAV } from '../data/navigation'
-import { PRODUCTS } from '../data/products'
+import { PRODUCTS } from '../data/products/index'
 import { RESOURCES } from '../data/resources'
 import { useTk } from '../hooks/useThemeTokens'
 

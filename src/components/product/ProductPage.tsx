@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PRODUCTS } from "../../data/products";
+import { PRODUCTS } from "../../data/products/index";
 import { DevManagementPanel } from "./DevManagementPanel";
 import { ProductInfoTab } from "./tabs/ProductInfoTab";
 import {

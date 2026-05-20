@@ -1,5 +1,5 @@
 import type { NavItem } from '../types'
-import { PRODUCTS } from '../data/products'
+import { PRODUCTS } from '../data/products/index'
 import { useTk } from '../hooks/useThemeTokens'
 import { useThemeToggle, useIconColors } from '../context/ThemeContext'
 
