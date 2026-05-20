@@ -38,26 +38,7 @@ function StepCard({ step, num }: { step: GuideStep; num: number }) {
               loading="lazy"
             />
           </div>
-        ) : (
-          <div
-            className={`rounded-lg h-28 flex flex-col items-center justify-center ${tk.placeholder}`}
-          >
-            <svg
-              width="26"
-              height="26"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              className="mb-1.5"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-            <span className="text-[11px]">Screenshot placeholder</span>
-          </div>
-        )}
+        ) : null}
         {step.tip && (
           <div className={`flex gap-2 mt-3 rounded-lg border p-3 ${tk.tip}`}>
             <svg

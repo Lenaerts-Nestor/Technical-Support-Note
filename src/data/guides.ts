@@ -47,71 +47,18 @@ Thank you.
               'Once you have reviewed the NPF post, send an email to the client outlining the next steps and any required actions.',
             tip: 'Replace the: RMA####### with RMA number of the RMA highlighted in the post SN ###### With the serial number of the unit highlighted in the post',
           },
+          {
+            id: 'putting client response in a post',
+            title: 'Putting Client Response in a Post and sending to service engineering',
+            
+            description:
+              'Once you receive a response from the client, create a new post in the case and summarize the client’s response. Then, send this post to service engineering for further analysis',
+            tip: 'change the ownership to the service engineer and put the case to updated status',
+          }
         ],
       },
-      {
-        id: 'connection',
-        title: 'Establishing Connection',
-        description: 'Connect to the Crestron control processor',
-        steps: [
-          {
-            id: 'open-toolbox',
-            title: 'Open Crestron Toolbox Address Book',
-            description:
-              'In SIMPL Windows, go to Tools > Crestron Toolbox. In Toolbox, open the Address Book and locate or add the control processor by IP address.',
-            tip: null,
-          },
-          {
-            id: 'connect-processor',
-            title: 'Connect to the Processor',
-            description:
-              'Double-click the processor entry in the Address Book. Enter credentials if prompted. Wait for "Connected" status to appear in the status bar.',
-            tip: 'Ensure you are on the same network segment as the control processor. Default credentials are admin / (blank password).',
-          },
-        ],
-      },
-      {
-        id: 'uploading',
-        title: 'Uploading the Program',
-        description: 'Transfer the compiled program to the processor',
-        steps: [
-          {
-            id: 'compile',
-            title: 'Compile the Project',
-            description:
-              'Press F7 or go to Build > Compile. Resolve any errors shown in the output window at the bottom before proceeding. Warnings can usually be ignored.',
-            tip: null,
-          },
-          {
-            id: 'send-program',
-            title: 'Send Program to Processor',
-            description:
-              'Go to Functions > Send Program. In the dialog, verify the target processor IP address and click "Send". The progress bar indicates upload status.',
-            tip: 'Do not disconnect the network or close SIMPL Windows during the upload process.',
-          },
-        ],
-      },
-      {
-        id: 'verification',
-        title: 'Verification',
-        description: 'Confirm the program uploaded and is running',
-        steps: [
-          {
-            id: 'check-status',
-            title: 'Verify Program Status',
-            description:
-              'In Crestron Toolbox, navigate to System Info and confirm the program name, slot number, and status all show "Running".',
-            tip: null,
-          },
-          {
-            id: 'test-system',
-            title: 'Test the System',
-            description:
-              'Operate touch panels and control devices to confirm expected behavior. Check signal activity in the SIMPL Debugger if issues arise.',
-            tip: 'Use SIMPL Debugger (Tools > SIMPL Debugger) to monitor signal states in real time.',
-          },
-        ],
-      },
+      
+     
     ],
   },
 

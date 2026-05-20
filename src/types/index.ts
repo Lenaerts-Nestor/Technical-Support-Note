@@ -142,7 +142,7 @@ export interface GuideStep {
   title: string;
   description: string;
   /** optional screenshot shown above description */
-  imageSrc?: string;
+  imageSrc?: string | null;
   /** optional large text block shown instead of an image */
   bigText?: string;
   /** null = no tip for this step */
