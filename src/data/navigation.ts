@@ -9,6 +9,7 @@ import type { NavItem, NavSection } from "../types";
 export const PINNED: NavItem[] = [
   { id: "overview", label: "Overview", type: "overview" },
   { id: "voice-call", label: "Voice Call", type: "voicecall" },
+  { id: "rma", label: "RMA", type: "rma" },
 ];
 
 export const NAV: NavSection[] = [
