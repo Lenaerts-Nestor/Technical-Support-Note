@@ -32,6 +32,18 @@ export const NAV: NavSection[] = [
     ],
   },
   {
+    section: "PRODUCTS",
+    items: [
+      { id: "tsr-310", label: "TSR-310", type: "product" },
+      { id: "cp4", label: "CP4", type: "product" },
+      { id: "dm-nvx-360", label: "DM-NVX-360", type: "product" },
+      { id: "dm-nvx-e20", label: "DM-NVX-E20", type: "product" },
+      { id: "tsw-1070", label: "TSW-1070", type: "product" },
+      { id: "tsw-770", label: "TSW-770", type: "product" },
+      { id: "tsw-570", label: "TSW-570", type: "product" },
+    ],
+  },
+  {
     section: "STEP-BY-STEP GUIDES",
     items: [
       { id: "npf-procedure", label: "NPF Procedure", type: "guide" },
@@ -41,29 +53,6 @@ export const NAV: NavSection[] = [
         label: "Toolbox Diagnostics",
         type: "guide",
       },
-    ],
-  },
-  {
-    section: "REMOTE CONTROL",
-    items: [{ id: "tsr-310", label: "TSR-310", type: "product" }],
-  },
-  {
-    section: "Processors",
-    items: [{ id: "cp4", label: "CP4", type: "product" }],
-  },
-  {
-    section: "NVX",
-    items: [
-      { id: "dm-nvx-360", label: "DM-NVX-360", type: "product" },
-      { id: "dm-nvx-e20", label: "DM-NVX-E20", type: "product" },
-    ],
-  },
-  {
-    section: "TOUCH PANELS",
-    items: [
-      { id: "tsw-1070", label: "TSW-1070", type: "product" },
-      { id: "tsw-770", label: "TSW-770", type: "product" },
-      { id: "tsw-570", label: "TSW-570", type: "product" },
     ],
   },
 ];
