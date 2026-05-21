@@ -10,6 +10,7 @@ import { GuidePage } from './components/guide/GuidePage'
 import { WelcomePage } from './components/WelcomePage'
 import { VoiceCallPage } from './components/VoiceCallPage'
 import { RMAPage } from './components/RMAPage'
+import { CasesPage } from './components/cases/CasesPage'
 
 // Inner component so it can consume ThemeContext
 function AppInner() {
@@ -32,6 +33,7 @@ function AppInner() {
     if (!selected || selected.type === 'overview') return <WelcomePage />
     if (selected.type === 'voicecall') return <VoiceCallPage key={selected.id} />
     if (selected.type === 'rma') return <RMAPage key={selected.id} />
+    if (selected.type === 'cases') return <CasesPage />
     if (selected.type === 'product') {
       return (
         <ProductPage

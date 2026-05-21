@@ -10,6 +10,7 @@ export const PINNED: NavItem[] = [
   { id: "overview", label: "Overview", type: "overview" },
   { id: "voice-call", label: "Voice Call", type: "voicecall" },
   { id: "rma", label: "RMA", type: "rma" },
+  { id: "cases", label: "Cases", type: "cases" },
 ];
 
 export const NAV: NavSection[] = [
@@ -17,11 +18,6 @@ export const NAV: NavSection[] = [
     section: "RESOURCES",
     items: [
       { id: "case-routing", label: "Case Routing", type: "resource" },
-      {
-        id: "mail-structure",
-        label: "Mail Structure and Extra's",
-        type: "resource",
-      },
       { id: "daily-mails", label: "Daily Mails Response", type: "resource" },
       { id: "follow-up-cases", label: "Follow Up Cases", type: "resource" },
       {

@@ -22,148 +22,83 @@ export const RESOURCES: Record<string, Resource> = {
           {
             title: "Case Queues",
             rows: [
-              { label: "New cases for South Africa (ZA)", value: "South Africa Tech Support Case Queue" },
-              { label: "New cases for Sweden (not from Special)", value: "Sweden Tech Support Case Queue" },
+              {
+                label: "New cases for South Africa (ZA)",
+                value: "South Africa Tech Support Case Queue",
+              },
+              {
+                label: "New cases for Sweden (not from Special)",
+                value: "Sweden Tech Support Case Queue",
+              },
               { label: "RMA creation", value: "EMEA CS Post Sales Queue" },
-              { label: "XIO Cloud, Scheduling, Fusion", value: "EMEA SaaS Queue" },
-              { label: "System design (Sales Support)", value: "EMEA Sales Support Case Queue" },
+              {
+                label: "XIO Cloud, Scheduling, Fusion",
+                value: "EMEA SaaS Queue",
+              },
+              {
+                label: "System design (Sales Support)",
+                value: "EMEA Sales Support Case Queue",
+              },
               { label: "Training questions", value: "CTI Training Case Queue" },
-              { label: "Security questions (only after conformation of N+1)", value: "Security Request Case Queue" },
+              {
+                label: "Security questions (only after conformation of N+1)",
+                value: "Security Request Case Queue",
+              },
               { label: "US cases", value: "US AE CBQ Case Queue" },
-              { label: "Intelligent Video (IV) cases", value: "EMEA IV Pro Services" },
+              {
+                label: "Intelligent Video (IV) cases",
+                value: "EMEA IV Pro Services",
+              },
               { label: "Flex cases", value: "EMEA Flex Support Case Queue" },
-              { label: "License questions", value: "Licensing & Subscription Case Queue" },
+              {
+                label: "License questions",
+                value: "Licensing & Subscription Case Queue",
+              },
             ],
           },
           {
             title: "Contacts",
             rows: [
-              { label: "Crestron Account questions", value: "CeurClientrelations@crestron.com" },
-              { label: "Questions about orders and shipment", value: "CEUROrders@crestron.com" },
+              {
+                label: "Crestron Account questions",
+                value: "CeurClientrelations@crestron.com",
+              },
+              {
+                label: "Questions about orders and shipment",
+                value: "CEUROrders@crestron.com",
+              },
               { label: "Website problems", value: "Webmaster@crestron.com" },
-              { label: "Issues with Documentation", value: "techdoc@crestron.com" },
-              { label: "Emails from Bpost for payment", value: "Ceurlogistics@crestron.com" },
-              { label: "Questions regarding Safety and Prevention", value: "ceurprevention@crestron.com" },
-              { label: "Sales escalated cases", value: "Support-Escalation-EMEA@crestron.com" },
+              {
+                label: "Issues with Documentation",
+                value: "techdoc@crestron.com",
+              },
+              {
+                label: "Emails from Bpost for payment",
+                value: "Ceurlogistics@crestron.com",
+              },
+              {
+                label: "Questions regarding Safety and Prevention",
+                value: "ceurprevention@crestron.com",
+              },
+              {
+                label: "Sales escalated cases",
+                value: "Support-Escalation-EMEA@crestron.com",
+              },
             ],
           },
           {
             title: "Problems to Reach Out",
             rows: [
-              { label: "Website problems", value: "Reach out to the Crestron Europe Marketing team" },
+              {
+                label: "Website problems",
+                value: "Reach out to the Crestron Europe Marketing team",
+              },
               { label: "Jurgen Croes", value: "jcroes@crestron.com" },
-              { label: "Caterina Janssens", value: "caterina.janssens@crestron.com" },
+              {
+                label: "Caterina Janssens",
+                value: "caterina.janssens@crestron.com",
+              },
             ],
-          },
-        ],
-      },
-    ],
-  },
-
-  "mail-structure": {
-    id: "mail-structure",
-    name: "Mail Structure and Extra's",
-    subtitle: "Email templates and rules for customer communication",
-    initials: "MS",
-    color: "#0d9488",
-    sections: [
-      {
-        id: "start-email",
-        title: "Start Email",
-        icon: "mail",
-        description: "Use these templates to open a new case",
-        templates: [
-          {
-            language: "English",
-            content: `Hi {!Contact.FirstName},
-
-Thank you for contacting Crestron's True Blue Support Team!
-Case {!Case.CaseNumber} has been created for this issue.
-
-As discussed during our call,
-
-For further reference, could you please provide us with a
-Project name or reference.
-
-Should you have any other query, please do not hesitate to
-contact us. Thank you.`,
-          },
-          {
-            language: "Nederlands",
-            content: `Beste {!Contact.FirstName},
-
-Bedankt om contact op te nemen met Crestron's True Blue Support Team!
-Case {!Case.CaseNumber} werd aangemaakt voor dit probleem.
-
-Zoals besproken aan de telefoon/Zoals telefonisch besproken,
-
-Voor verdere referentie, zou u ons een projectnaam of referentie
-kunnen bezorgen?
-
-Twijfel zeker niet om ons te contacteren indien u verdere vragen
-heeft. Alvast bedankt.`,
-          },
-          {
-            language: "Español",
-            content: `Estimado/a {!Contact.FirstName},
-
-Gracias por ponerse en contacto con el equipo de soporte True
-Blue de Crestron.
-El caso {!Case.CaseNumber} ha sido creado para este problema.
-
-Tal como se habló por teléfono,
-
-Para futuras referencias, ¿podría facilitarnos un nombre o
-referencia de proyecto?
-
-No dude en contactarnos si tiene más preguntas. Muchas gracias.`,
-          },
-        ],
-      },
-      {
-        id: "account-identification",
-        title: "Mail Structure: Account Identification",
-        icon: "mail",
-        description:
-          "Inform the customer to register their email and link a customer number",
-        templates: [
-          {
-            language: "English",
-            content: `Hi {!Contact.FirstName},
-
-To provide you with the best possible support, we kindly ask you
-to register your email address and link your customer number to
-our support portal.
-
-This ensures all future cases are tracked under your account.
-
-Please visit: https://support.crestron.com
-
-Should you need assistance, don't hesitate to contact us.`,
-          },
-          {
-            language: "Nederlands",
-            content: `Beste {!Contact.FirstName},
-
-Om u de best mogelijke ondersteuning te bieden, vragen wij u
-vriendelijk uw e-mailadres te registreren en uw klantnummer te
-koppelen aan ons supportportaal.
-
-Bezoek: https://support.crestron.com om uw registratie te voltooien.
-
-Aarzel niet om contact op te nemen als u hulp nodig heeft.`,
-          },
-          {
-            language: "Español",
-            content: `Hola {!Contact.FirstName},
-
-Para brindarle el mejor soporte posible, le pedimos amablemente
-que registre su dirección de correo electrónico y vincule su
-número de cliente a nuestro portal de soporte.
-
-Por favor visite: https://support.crestron.com
-
-No dude en contactarnos si necesita ayuda.`,
           },
         ],
       },
@@ -220,48 +155,6 @@ Tal como se habló por teléfono,
 Para futuras referencias, ¿podría facilitarnos un nombre o referencia de proyecto?
 
 No dude en contactarnos si tiene más preguntas. Muchas gracias.`,
-          },
-        ],
-      },
-      {
-        id: "pending-info",
-        title: "Asking for More Information",
-        icon: "mail",
-        description: "Use when you need more info before proceeding",
-        templates: [
-          {
-            language: "English",
-            content: `Hi {!Contact.FirstName},
-
-Thank you for the provided information. Before we proceed with an RMA, we would like to ask the following question, as it will help us investigate the issue more thoroughly.
-
-Thank you for the information provided. We would like to ask a few questions as this will help us investigate this faster and we can avoid a NPF [no problem found] thus to reduce cost on your side.
-
-Before we proceed with an RMA could you clarify the following questions so that we can avoid any misunderstanding :
-
-`,
-          },
-          {
-            language: "Nederlands",
-            content: `Beste {!Contact.FirstName},
-
-Dank u wel voor de verstrekte informatie. Voordat we overgaan tot een RMA, willen we graag de volgende vraag stellen, omdat dit ons zal helpen het probleem grondiger te onderzoeken.
-
-Dank u wel voor de verstrekte informatie. We zouden graag een paar vragen willen stellen, omdat dit ons helpt dit sneller te onderzoeken en we zo een NPF [no problem found] kunnen voorkomen om de kosten aan uw kant te verlagen.
-
-Voordat we overgaan tot een RMA, zou u de volgende vragen kunnen verduidelijken, zodat we misverstanden kunnen voorkomen?
-`,
-          },
-          {
-            language: "Español",
-            content: `Hola {!Contact.FirstName},
-
-Gracias por la información proporcionada. Antes de proceder con un RMA, nos gustaría hacer la siguiente pregunta, ya que nos ayudará a investigar el problema más a fondo.
-
-Gracias por la información proporcionada. Nos gustaría hacer algunas preguntas, ya que esto nos ayudará a investigar esto más rápido y podemos evitar un NPF [no problem found] para reducir los costos de su parte.
-
-Antes de proceder con un RMA, ¿podría aclarar las siguientes preguntas para que podamos evitar cualquier malentendido?
-`,
           },
         ],
       },
@@ -458,10 +351,11 @@ Gracias por contactar con Crestron True Blue Support.`,
     ],
   },
 
-   "associate-account-steps": {
+  "associate-account-steps": {
     id: "associate-account-steps",
     name: "Associate-account",
-    subtitle: "Follow-up templates for how to associate an account for a client",
+    subtitle:
+      "Follow-up templates for how to associate an account for a client",
     initials: "FU",
     color: "#7c3aed",
     sections: [
@@ -503,8 +397,6 @@ https://community.crestron.com/s/article/id-1000579
           },
         ],
       },
-    
     ],
   },
-
 };
