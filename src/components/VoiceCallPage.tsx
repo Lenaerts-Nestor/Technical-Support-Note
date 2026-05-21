@@ -27,6 +27,20 @@ interface SectionDef {
   copyLabel: string
 }
 
+interface SectionCardProps {
+  sec: SectionDef
+  value: string
+  isFocused: boolean
+  panelClass: string
+  textClass: string
+  accentBorderClass: string
+  accentTextClass: string
+  textareaClass: string
+  onFocus: (key: keyof Fields) => void
+  onBlur: () => void
+  onChange: (key: keyof Fields) => (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+}
+
 // ── Icons ────────────────────────────────────────────────────
 
 function InfoIcon() {
@@ -164,6 +178,42 @@ const EXTRA_SECTION: SectionDef = {
   copyLabel: 'EXTRA NOTES',
 }
 
+function SectionCard({
+  sec,
+  value,
+  isFocused,
+  panelClass,
+  textClass,
+  accentBorderClass,
+  accentTextClass,
+  textareaClass,
+  onFocus,
+  onBlur,
+  onChange,
+}: SectionCardProps) {
+  return (
+    <div
+      className={`rounded-xl border transition-all ${panelClass} ${isFocused ? `border-l-[3px] ${accentBorderClass}` : ''}`}
+    >
+      <div className="px-4 pt-3 pb-3">
+        <div className={`flex items-center gap-2 mb-2 ${isFocused ? accentTextClass : textClass}`}>
+          {sec.icon}
+          <span className="text-xs font-semibold">{sec.label}</span>
+        </div>
+        <textarea
+          rows={5}
+          value={value}
+          onChange={onChange(sec.key)}
+          onFocus={() => onFocus(sec.key)}
+          onBlur={onBlur}
+          placeholder={sec.placeholder}
+          className={`w-full resize-y rounded-lg border px-3 py-2 text-sm outline-none transition-all ${textareaClass}`}
+        />
+      </div>
+    </div>
+  )
+}
+
 // ── Main component ───────────────────────────────────────────
 
 export function VoiceCallPage() {
@@ -262,33 +312,6 @@ export function VoiceCallPage() {
       <polyline points="20 6 9 17 4 12" />
     </svg>
   )
-
-  const SectionCard = ({ sec }: { sec: SectionDef }) => {
-    const isFocused = focusedKey === sec.key
-    return (
-      <div
-        className={`rounded-xl border transition-all ${tk.panel} ${
-          isFocused ? `border-l-[3px] ${accentBorderClass}` : ''
-        }`}
-      >
-        <div className="px-4 pt-3 pb-3">
-          <div className={`flex items-center gap-2 mb-2 ${isFocused ? accentTextClass : tk.ts}`}>
-            {sec.icon}
-            <span className="text-xs font-semibold">{sec.label}</span>
-          </div>
-          <textarea
-            rows={5}
-            value={fields[sec.key]}
-            onChange={updateField(sec.key)}
-            onFocus={() => setFocusedKey(sec.key)}
-            onBlur={() => setFocusedKey(null)}
-            placeholder={sec.placeholder}
-            className={`w-full resize-y rounded-lg border px-3 py-2 text-sm outline-none transition-all ${tk.textarea}`}
-          />
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div>
@@ -428,13 +451,38 @@ export function VoiceCallPage() {
       {/* 2-column grid of sections */}
       <div className="grid grid-cols-2 gap-3 mb-3">
         {GRID_SECTIONS.map((sec) => (
-          <SectionCard key={sec.key} sec={sec} />
+          <SectionCard
+            key={sec.key}
+            sec={sec}
+            value={fields[sec.key]}
+            isFocused={focusedKey === sec.key}
+            panelClass={tk.panel}
+            textClass={tk.ts}
+            accentBorderClass={accentBorderClass}
+            accentTextClass={accentTextClass}
+            textareaClass={tk.textarea}
+            onFocus={setFocusedKey}
+            onBlur={() => setFocusedKey(null)}
+            onChange={updateField}
+          />
         ))}
       </div>
 
       {/* Extra notes — full width */}
       <div className="mb-4">
-        <SectionCard sec={EXTRA_SECTION} />
+        <SectionCard
+          sec={EXTRA_SECTION}
+          value={fields.extraNotes}
+          isFocused={focusedKey === EXTRA_SECTION.key}
+          panelClass={tk.panel}
+          textClass={tk.ts}
+          accentBorderClass={accentBorderClass}
+          accentTextClass={accentTextClass}
+          textareaClass={tk.textarea}
+          onFocus={setFocusedKey}
+          onBlur={() => setFocusedKey(null)}
+          onChange={updateField}
+        />
       </div>
 
       {/* Bottom copy */}
