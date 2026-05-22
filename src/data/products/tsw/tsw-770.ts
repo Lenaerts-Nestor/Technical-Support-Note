@@ -8,30 +8,6 @@ export const tsw770: Product = {
   docsUrl:
     "https://www.crestron.com/Products/Catalog/Control-and-Management/User-Interfaces/Touchscreen/TSW-770-B-S",
   category: "touch-panels",
-  description:
-    "A 7-inch wall-mount touch screen with PoE+ power, HTML5 project support, Rava SIP intercom, and built-in conferencing controls. Drop-in replacement for legacy TSW-760 deployments.",
-  specs: [
-    {
-      title: "Touch Screen Display",
-      fields: [
-        { label: "Size", value: "7 in. (178 mm) diagonal" },
-        { label: "Resolution", value: "1280 × 800 pixels" },
-        { label: "Brightness", value: "400 nits (cd/m²)" },
-        {
-          label: "Touch Screen",
-          value: "Projected capacitive, 5-point multitouch",
-        },
-      ],
-    },
-    {
-      title: "Connectivity",
-      fields: [
-        { label: "Network", value: "PoE+ (802.3at)" },
-        { label: "Storage", value: "8 GB eMMC" },
-        { label: "Audio", value: "Rava® SIP Intercom" },
-      ],
-    },
-  ],
   quickRef: [
     { label: "Display", value: '7" 1280×800' },
     { label: "Power", value: "PoE+ (802.3at)" },
@@ -71,17 +47,6 @@ export const tsw770: Product = {
       "Do not power off or disconnect during the update. The panel will reboot automatically when complete.",
     ],
   },
-  techTips: [
-    {
-      tip: "Drop-in TSW-760 replacement — update the IP table entry type from TSW-760 to TSW-770 on the control processor.",
-    },
-    {
-      tip: "Rava SIP intercom requires a SIP server configured in the control system program.",
-    },
-    {
-      tip: "If the panel shows wrong project after swap, check the IP table IPID matches the project IPID.",
-    },
-  ],
   commonProblems: [
     {
       problem: "Panel offline / not responding in Toolbox",

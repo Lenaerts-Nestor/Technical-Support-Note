@@ -16,17 +16,11 @@ import { CasesPage } from './components/cases/CasesPage'
 function AppInner() {
   const [selected, setSelected] = useState<NavItem | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
-  // In-memory notes per product — resets on page refresh
-  const [notesMap, setNotesMap] = useState<Record<string, string>>({})
   const { tk } = useTk()
 
   const handleSelect = useCallback((item: NavItem) => {
     setSelected(item)
     setSearchQuery('')
-  }, [])
-
-  const handleNotes = useCallback((productId: string, notes: string) => {
-    setNotesMap((prev) => ({ ...prev, [productId]: notes }))
   }, [])
 
   const renderContent = () => {
@@ -35,15 +29,7 @@ function AppInner() {
     if (selected.type === 'rma') return <RMAPage key={selected.id} />
     if (selected.type === 'cases') return <CasesPage />
     if (selected.type === 'product') {
-      return (
-        <ProductPage
-          // key forces a full remount (and tab reset) when switching products
-          key={selected.id}
-          productId={selected.id}
-          notes={notesMap[selected.id] ?? ''}
-          onNotes={(notes) => handleNotes(selected.id, notes)}
-        />
-      )
+      return <ProductPage key={selected.id} productId={selected.id} />
     }
     if (selected.type === 'resource') return <ResourcePage key={selected.id} resourceId={selected.id} />
     if (selected.type === 'guide') return <GuidePage key={selected.id} guideId={selected.id} />

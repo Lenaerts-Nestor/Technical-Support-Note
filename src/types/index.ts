@@ -32,16 +32,6 @@ export interface NavSection {
 // PRODUCT
 // ============================================================
 
-export interface SpecField {
-  label: string;
-  value: string;
-}
-
-export interface SpecSection {
-  title: string;
-  fields: SpecField[];
-}
-
 export interface QuickRefItem {
   label: string;
   value: string;
@@ -72,10 +62,6 @@ export interface FirmwareUpdate {
   steps: string[];
 }
 
-export interface TechTip {
-  tip: string;
-}
-
 export interface CommonProblem {
   problem: string;
   solutions: string[];
@@ -94,12 +80,9 @@ export interface Product {
   partNumber: string;
   docsUrl: string;
   category: "remote-control" | "touch-panels" | "processors" | "other";
-  description: string;
-  specs: SpecSection[];
   quickRef: QuickRefItem[];
   deviceManagement: DeviceManagement;
   firmwareUpdate: FirmwareUpdate;
-  techTips: TechTip[];
   commonProblems: CommonProblem[];
   links: ProductLink[];
 }

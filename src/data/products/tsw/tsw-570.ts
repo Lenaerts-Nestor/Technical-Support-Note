@@ -8,28 +8,6 @@ export const tsw570: Product = {
   docsUrl:
     "https://www.crestron.com/Products/Catalog/Control-and-Management/User-Interfaces/Touchscreen/TSW-570-B-S",
   category: "touch-panels",
-  description:
-    "Compact 5-inch wall touch screen, ideal for room scheduling and single-room AV control. Standard PoE-powered (802.3af), HTML5 capable. Perfect for huddle spaces and small meeting rooms.",
-  specs: [
-    {
-      title: "Touch Screen Display",
-      fields: [
-        { label: "Size", value: "5 in. (127 mm) diagonal" },
-        { label: "Resolution", value: "1280 × 720 pixels" },
-        {
-          label: "Touch Screen",
-          value: "Projected capacitive, 5-point multitouch",
-        },
-      ],
-    },
-    {
-      title: "Connectivity",
-      fields: [
-        { label: "Network", value: "PoE (802.3af) — standard PoE" },
-        { label: "Storage", value: "8 GB eMMC" },
-      ],
-    },
-  ],
   quickRef: [
     { label: "Display", value: '5" 1280×720' },
     { label: "Power", value: "PoE (802.3af)" },
@@ -68,17 +46,6 @@ export const tsw570: Product = {
       "Do not power off or disconnect during the update. The panel will reboot automatically when complete.",
     ],
   },
-  techTips: [
-    {
-      tip: "Uses standard PoE (802.3af) — no PoE+ required. Any 802.3af-compliant switch port works.",
-    },
-    {
-      tip: "Great for Crestron Fusion room scheduling — configure the Fusion URL under Setup > Applications.",
-    },
-    {
-      tip: "Smaller screen means fewer UI elements — keep VT Pro-e projects simple with large touch targets.",
-    },
-  ],
   commonProblems: [
     {
       problem: 'Panel shows "No Project Loaded"',

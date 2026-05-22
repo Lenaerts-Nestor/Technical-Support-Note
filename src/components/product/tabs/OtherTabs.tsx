@@ -3,7 +3,6 @@ import { useState } from "react";
 import { CopyButton } from "../../shared/CopyButton";
 import { useTk } from "../../../hooks/useThemeTokens";
 
-// ---- Shared empty state ----
 function EmptyState({ message }: { message: string }) {
   const { tk } = useTk();
   return (
@@ -13,52 +12,22 @@ function EmptyState({ message }: { message: string }) {
   );
 }
 
-// ============================================================
-// Tech Tips Tab
-// ============================================================
-export function TechTipsTab({ product }: { product: Product }) {
-  const { tk } = useTk();
-  if (!product.techTips.length)
-    return <EmptyState message="No tech tips yet for this product." />;
-  return (
-    <div className="space-y-3">
-      {product.techTips.map((item, i) => (
-        <div key={i} className={`flex gap-3 rounded-xl border p-4 ${tk.panel}`}>
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#b45309"
-            strokeWidth="2"
-            className="flex-shrink-0 mt-0.5"
-          >
-            <line x1="12" y1="2" x2="12" y2="6" />
-            <line x1="12" y1="18" x2="12" y2="22" />
-            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76" />
-            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07" />
-            <line x1="2" y1="12" x2="6" y2="12" />
-            <line x1="18" y1="12" x2="22" y2="12" />
-            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24" />
-            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93" />
-          </svg>
-          <p className={`text-sm leading-relaxed ${tk.ts}`}>{item.tip}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ============================================================
-// Common Problems Tab
-// ============================================================
 export function CommonProblemsTab({ product }: { product: Product }) {
   const { tk } = useTk();
   const [openSet, setOpenSet] = useState<Set<number>>(() => new Set());
-  if (!product.commonProblems.length)
+  const hasProblems = product.commonProblems.length > 0;
+  const hasLinks = product.links.length > 0;
+
+  if (!hasProblems && !hasLinks) {
     return <EmptyState message="No common problems documented yet." />;
+  }
+
   return (
     <div className="space-y-4">
+      {!hasProblems && (
+        <EmptyState message="No common problems documented yet." />
+      )}
+
       {product.commonProblems.map((item, i) => {
         const isOpen = openSet.has(i);
         return (
@@ -128,111 +97,49 @@ export function CommonProblemsTab({ product }: { product: Product }) {
           </div>
         );
       })}
-    </div>
-  );
-}
 
-// ============================================================
-// My Notes Tab (in-memory — resets on page refresh)
-// ============================================================
-interface NotesProps {
-  notes: string;
-  onNotes: (value: string) => void;
-}
-
-export function MyNotesTab({ notes, onNotes }: NotesProps) {
-  const { tk } = useTk();
-  return (
-    <div className="space-y-3">
-      <div
-        className={`flex items-start gap-2 rounded-xl border p-3 text-xs ${tk.tip}`}
-      >
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="flex-shrink-0 mt-0.5"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <line x1="12" y1="8" x2="12" y2="12" />
-          <line x1="12" y1="16" x2="12.01" y2="16" />
-        </svg>
-        <span>
-          Notes are stored in-memory only and will reset on page refresh.
-        </span>
-      </div>
-      <textarea
-        value={notes}
-        onChange={(e) => onNotes(e.target.value)}
-        placeholder="Write your notes here... (e.g., known issues, site-specific configs, customer quirks)"
-        rows={16}
-        className={`w-full rounded-xl border p-4 text-sm leading-relaxed resize-none outline-none focus:ring-2 focus:ring-teal-500/30 transition-all ${tk.textarea}`}
-      />
-    </div>
-  );
-}
-
-// ============================================================
-// Links Tab
-// ============================================================
-export function LinksTab({ product }: { product: Product }) {
-  const { tk } = useTk();
-  if (!product.links.length) {
-    return (
-      <div className={`rounded-xl border p-8 text-center ${tk.panel}`}>
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className={`mx-auto mb-2 ${tk.tx}`}
-        >
-          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-        </svg>
-        <p className={`text-sm ${tk.ts}`}>No links yet.</p>
-        <p className={`text-xs mt-1 ${tk.tx}`}>
-          Add documentation URLs in src/data/products.ts
-        </p>
-      </div>
-    );
-  }
-  return (
-    <div className="space-y-2">
-      {product.links.map((link, i) => (
-        <a
-          key={i}
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex items-center justify-between rounded-xl border p-4 transition-colors group ${tk.panel}`}
-        >
-          <div>
-            <p className={`text-sm font-medium ${tk.tp}`}>{link.title}</p>
-            {link.description && (
-              <p className={`text-xs mt-0.5 ${tk.ts}`}>{link.description}</p>
-            )}
-          </div>
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className={`flex-shrink-0 ${tk.tx}`}
+      {hasLinks && (
+        <div className={`rounded-xl border p-4 ${tk.panel}`}>
+          <p
+            className={`text-[10px] font-semibold tracking-widest uppercase mb-3 ${tk.tx}`}
           >
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-        </a>
-      ))}
+            Useful Links
+          </p>
+          <div className="space-y-2">
+            {product.links.map((link, i) => (
+              <a
+                key={i}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-between rounded-xl border p-3 transition-colors group ${tk.panel}`}
+              >
+                <div>
+                  <p className={`text-sm font-medium ${tk.tp}`}>{link.title}</p>
+                  {link.description && (
+                    <p className={`text-xs mt-0.5 ${tk.ts}`}>
+                      {link.description}
+                    </p>
+                  )}
+                </div>
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className={`flex-shrink-0 ${tk.tx}`}
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

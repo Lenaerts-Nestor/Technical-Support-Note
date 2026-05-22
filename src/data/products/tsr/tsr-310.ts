@@ -8,20 +8,6 @@ export const tsr310: Product = {
   docsUrl:
     "https://www.crestron.com/Products/Catalog/Control-and-Management/Remote-Controls/TSR-310",
   category: "remote-control",
-  description:
-    "A handheld RF/IR remote with 3 programmable buttons, designed for simple room control in residential and commercial installations. Supports both RF (916.5 MHz) and IR modes with a range of up to 100 ft.",
-  specs: [
-    {
-      title: "General",
-      fields: [
-        { label: "Buttons", value: "3 programmable" },
-        { label: "RF Frequency", value: "916.5 MHz" },
-        { label: "IR Carrier", value: "38 kHz" },
-        { label: "Battery", value: "2× AAA (1.5V)" },
-        { label: "RF Range", value: "Up to 100 ft (30.5 m)" },
-      ],
-    },
-  ],
   quickRef: [
     { label: "Power", value: "2× AAA" },
     { label: "RF Range", value: "~100 ft" },
@@ -48,17 +34,6 @@ export const tsr310: Product = {
       "The TSR-310 does not support firmware updates. For any issues, please refer to the troubleshooting tips or contact Crestron support.",
     ],
   },
-  techTips: [
-    {
-      tip: "If not pairing, ensure the RF receiver (ZUMMESH-BASE) is within range and on the same RF channel.",
-    },
-    {
-      tip: "Use Crestron Remote Configurator utility to reprogram button functions.",
-    },
-    {
-      tip: "Weak signal? Check for RF interference from 900 MHz devices nearby (baby monitors, older cordless phones).",
-    },
-  ],
   commonProblems: [
     {
       problem: "Remote not responding",
