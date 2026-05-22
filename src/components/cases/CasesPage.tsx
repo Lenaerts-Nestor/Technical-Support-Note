@@ -21,46 +21,29 @@ type SnippetItem =
   | { label: string; resourceId: string; sectionId: string; customText?: never }
   | { label: string; resourceId?: never; sectionId?: never; customText: (lang: Lang) => string }
 
+// Add a row here to include a new resource in the sidebar — its sections appear automatically
+const AUTO_RESOURCE_GROUPS: { resourceId: string; groupLabel: string }[] = [
+  { resourceId: 'daily-mails',             groupLabel: 'Daily Mails' },
+  { resourceId: 'follow-up-cases',         groupLabel: 'Follow Up'   },
+  { resourceId: 'associate-account-steps', groupLabel: 'Account'     },
+]
+
+// These combine RMA sentences with a template body and can't be derived from resources.ts
+const RMA_ASK_ITEMS: SnippetItem[] = [
+  { label: 'Option 1 – Asking info', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][0]}\n\n${RMA_TEMPLATE_BODY}` },
+  { label: 'Option 2 – Asking info', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][1]}\n\n${RMA_TEMPLATE_BODY}` },
+]
+
 const SNIPPET_GROUPS: { group: string; items: SnippetItem[] }[] = [
-  {
-    group: 'Opening',
-    items: [
-      { label: 'Opening mail',     resourceId: 'daily-mails', sectionId: 'general-inquiry' },
-      { label: 'Asking More Info', resourceId: 'daily-mails', sectionId: 'asking-more-information' },
-      { label: 'Remote Session',   resourceId: 'daily-mails', sectionId: 'remote-session' },
-    ],
-  },
-  {
-    group: 'Account',
-    items: [
-      { label: 'Associate account', resourceId: 'associate-account-steps', sectionId: 'associate-account' },
-    ],
-  },
-  {
-    group: 'RMA',
-    items: [
-      { label: 'Option 1 – Asking info', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][0]}\n\n${RMA_TEMPLATE_BODY}` },
-      { label: 'Option 2 – Asking info', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][1]}\n\n${RMA_TEMPLATE_BODY}` },
-      { label: 'Approving RMA',          resourceId: 'daily-mails', sectionId: 'approving-rma' },
-      { label: 'Direct RMA',             resourceId: 'daily-mails', sectionId: 'direct-rma' },
-      { label: 'Technician on leave',    resourceId: 'daily-mails', sectionId: 'technician-onleave' },
-    ],
-  },
-  {
-    group: 'Follow Up',
-    items: [
-      { label: '1st Follow Up',         resourceId: 'follow-up-cases', sectionId: 'first-follow-up' },
-      { label: '2nd Follow Up',         resourceId: 'follow-up-cases', sectionId: 'second-follow-up' },
-      { label: '3rd Follow Up / Close', resourceId: 'follow-up-cases', sectionId: 'third-follow-up' },
-    ],
-  },
-  {
-    group: 'Resolution',
-    items: [
-      { label: 'Closing Case',           resourceId: 'daily-mails', sectionId: 'closing-case' },
-      { label: 'Escalated to Eng.',      resourceId: 'daily-mails', sectionId: 'escalated-to-engineering' },
-    ],
-  },
+  ...AUTO_RESOURCE_GROUPS.map(({ resourceId, groupLabel }) => ({
+    group: groupLabel,
+    items: (RESOURCES[resourceId]?.sections ?? []).map((s) => ({
+      label: s.title,
+      resourceId,
+      sectionId: s.id,
+    })) as SnippetItem[],
+  })),
+  { group: 'RMA – Asking', items: RMA_ASK_ITEMS },
 ]
 
 // ── Icons ─────────────────────────────────────────────────────
@@ -153,7 +136,7 @@ export function CasesPage() {
         </div>
 
         {/* ── RIGHT: Snippets ───────────────────────────────────── */}
-        <div className={`w-52 flex-shrink-0 rounded-xl border flex flex-col overflow-hidden ${tk.panel}`}>
+        <div className={`w-80 flex-shrink-0 rounded-xl border flex flex-col overflow-hidden ${tk.panel}`}>
           {/* Language selector */}
           <div className={`px-3 pt-3 pb-2 flex-shrink-0 border-b ${tk.brd}`}>
             <p className={`text-[10px] font-semibold tracking-widest uppercase mb-2 ${tk.tx}`}>Language</p>
@@ -177,7 +160,7 @@ export function CasesPage() {
                 <p className={`text-[10px] font-semibold tracking-wider uppercase px-1 mb-1 ${tk.tx}`}>
                   {group.group}
                 </p>
-                <div className="flex flex-col gap-1">
+                <div className="grid grid-cols-2 gap-1">
                   {group.items.map((item) => {
                     const text = item.customText
                       ? item.customText(language)
