@@ -224,6 +224,160 @@ Una vez que se haya creado el RMA, esta caso se actualizará con la información
           },
         ],
       },
+      {
+        id: "asking-more-information",
+        title: "Asking More Information",
+        icon: "mail",
+        description: "Use when you need additional details to better investigate the issue",
+        templates: [
+          {
+            language: "English",
+            content: `Hi {!Contact.FirstName},
+
+Thank you for the provided information, we would like to ask a few more questions to help us investigate this better.`,
+          },
+          {
+            language: "Nederlands",
+            content: `Beste {!Contact.FirstName},
+
+Bedankt voor de verstrekte informatie. We willen graag nog een paar aanvullende vragen stellen om het probleem beter te kunnen onderzoeken.`,
+          },
+          {
+            language: "Español",
+            content: `Hola {!Contact.FirstName},
+
+Gracias por la información proporcionada. Nos gustaría hacerle algunas preguntas adicionales para ayudarnos a investigar el problema mejor.`,
+          },
+        ],
+      },
+      {
+        id: "closing-case",
+        title: "Closing Case",
+        icon: "mail",
+        description: "Use when marking a case as solved",
+        templates: [
+          {
+            language: "English",
+            content: `Hi {!Contact.FirstName},
+
+Thanks for the update. I will go ahead and mark the case as solved. If you require further assistance please do not hesitate to contact us again. Hope you have a great rest of your day!
+
+As your questions have been answered, I will go ahead and mark the case as solved. If you require further assistance please do not hesitate to contact us again. Hope you have a great day!`,
+          },
+          {
+            language: "Nederlands",
+            content: `Beste {!Contact.FirstName},
+
+Bedankt voor de update. Ik zal de case als opgelost markeren. Mocht u verdere hulp nodig hebben, aarzel dan niet om ons opnieuw te contacteren. Ik wens u een fijne rest van de dag!
+
+Aangezien uw vragen beantwoord zijn, zal ik de case als opgelost markeren. Mocht u verdere hulp nodig hebben, aarzel dan niet om ons opnieuw te contacteren. Fijne dag!`,
+          },
+          {
+            language: "Español",
+            content: `Hola {!Contact.FirstName},
+
+Gracias por la actualización. Procederé a marcar el caso como resuelto. Si necesita más asistencia, no dude en contactarnos de nuevo. ¡Que tenga un excelente resto del día!
+
+Como sus preguntas han sido respondidas, procederé a marcar el caso como resuelto. Si necesita más asistencia, no dude en contactarnos de nuevo. ¡Que tenga un buen día!`,
+          },
+        ],
+      },
+      {
+        id: "remote-session",
+        title: "Remote Troubleshooting Session",
+        icon: "mail",
+        description: "Use when proposing a remote session to diagnose the issue",
+        templates: [
+          {
+            language: "English",
+            content: `Hi {!Contact.FirstName},
+
+To help us better diagnose the issue, we would like to schedule a remote troubleshooting session with you. Could you let us know your availability so we can arrange a suitable time?
+
+Please ensure the device is accessible and that someone with on-site access is available during the session.`,
+          },
+          {
+            language: "Nederlands",
+            content: `Beste {!Contact.FirstName},
+
+Om het probleem beter te kunnen diagnosticeren, willen we graag een remote troubleshooting sessie met u inplannen. Kunt u ons uw beschikbaarheid laten weten, zodat we een geschikt tijdstip kunnen afspreken?
+
+Zorg ervoor dat het apparaat bereikbaar is en dat iemand met toegang op locatie aanwezig is tijdens de sessie.`,
+          },
+          {
+            language: "Español",
+            content: `Hola {!Contact.FirstName},
+
+Para ayudarnos a diagnosticar mejor el problema, nos gustaría programar una sesión de diagnóstico remoto con usted. ¿Podría indicarnos su disponibilidad para que podamos encontrar un momento adecuado?
+
+Por favor, asegúrese de que el dispositivo sea accesible y de que haya alguien con acceso in situ disponible durante la sesión.`,
+          },
+        ],
+      },
+      {
+        id: "escalated-to-engineering",
+        title: "Escalated to Engineering",
+        icon: "mail",
+        description: "Use when the case has been passed to the engineering team",
+        templates: [
+          {
+            language: "English",
+            content: `Hi {!Contact.FirstName},
+
+Thank you for your patience. We have escalated your case to our engineering team for further investigation. They will review the details and we will follow up as soon as we have an update.
+
+We appreciate your understanding and will keep you informed of any progress.`,
+          },
+          {
+            language: "Nederlands",
+            content: `Beste {!Contact.FirstName},
+
+Bedankt voor uw geduld. We hebben uw case geëscaleerd naar ons engineeringteam voor verder onderzoek. Zij zullen de details bekijken en we nemen zo snel mogelijk contact met u op zodra er meer informatie beschikbaar is.
+
+We stellen uw begrip op prijs en houden u op de hoogte van alle voortgang.`,
+          },
+          {
+            language: "Español",
+            content: `Hola {!Contact.FirstName},
+
+Gracias por su paciencia. Hemos escalado su caso a nuestro equipo de ingeniería para una investigación más detallada. Revisarán los detalles y le haremos un seguimiento en cuanto tengamos novedades.
+
+Agradecemos su comprensión y le mantendremos informado de cualquier avance.`,
+          },
+        ],
+      },
+      {
+        id: "approving-rma",
+        title: "Approving RMA",
+        icon: "mail",
+        description: "Use after receiving the customer's device info to confirm RMA will be created",
+        templates: [
+          {
+            language: "English",
+            content: `Hi {!Contact.FirstName},
+
+We will proceed with getting an RMA created for this device.
+
+Once the RMA has been created this case will be updated with the RMA information as well as an RMA confirmation document sent directly to your email.`,
+          },
+          {
+            language: "Nederlands",
+            content: `Beste {!Contact.FirstName},
+
+We zullen een RMA aanmaken voor dit apparaat.
+
+Zodra de RMA is aangemaakt, wordt deze case bijgewerkt met de RMA-informatie en ontvangt u een RMA-bevestigingsdocument rechtstreeks op uw e-mailadres.`,
+          },
+          {
+            language: "Español",
+            content: `Hola {!Contact.FirstName},
+
+Procederemos a crear una RMA para este dispositivo.
+
+Una vez que la RMA haya sido creada, este caso se actualizará con la información de la RMA y se enviará un documento de confirmación de la RMA directamente a su correo electrónico.`,
+          },
+        ],
+      },
     ],
   },
 

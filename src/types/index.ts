@@ -4,19 +4,6 @@
 
 export type ItemType = "product" | "resource" | "guide" | "overview" | "voicecall" | "rma" | "cases";
 
-// ============================================================
-// CASE NOTES (Supabase-backed)
-// ============================================================
-
-export interface CaseNote {
-  id: number
-  title: string
-  name: string
-  content: string
-  updated_at: string
-  created_at: string
-}
-
 export interface NavItem {
   id: string;
   label: string;
