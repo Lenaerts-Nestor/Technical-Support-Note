@@ -274,32 +274,22 @@ export function VoiceCallPage() {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  // Styles
-  const accentBorderClass = dark ? 'border-l-[#10b981]' : 'border-l-[#059669]'
-  const accentTextClass = dark ? 'text-[#10b981]' : 'text-[#059669]'
-  const langActive = dark
-    ? 'bg-[#064e3b] text-[#10b981] border-[#10b981]'
-    : 'bg-[#ecfdf5] text-[#059669] border-[#059669]'
-  const langInactive = dark
-    ? 'bg-[#262626] text-[#a3a3a3] border-[#3a3a3a] hover:bg-[#3a3a3a] hover:text-[#ffffff]'
-    : 'bg-[#f5f5f5] text-[#525252] border-[#cfcfcf] hover:bg-[#e5e5e5] hover:text-[#000000]'
+  // Styles — all accent colours come from useThemeTokens so they can be changed centrally
+  const accentBorderClass = tk.focusBorderAccent
+  const accentTextClass   = tk.focusTextAccent
+  const langActive   = tk.btnActive
+  const langInactive = tk.btnInactive
   const copyBtn = (active: boolean) =>
     `flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold border transition-all ${
-      active
-        ? dark
-          ? 'bg-[#064e3b] text-[#10b981] border-[#10b981]'
-          : 'bg-[#ecfdf5] text-[#059669] border-[#059669]'
-        : dark
-        ? 'bg-[#262626] text-[#ffffff] border-[#3a3a3a] hover:bg-[#3a3a3a]'
-        : 'bg-[#ffffff] text-[#000000] border-[#cfcfcf] hover:bg-[#f5f5f5]'
+      active ? tk.btnActive : tk.btnInactive
     }`
   const addBtn = dark
-    ? 'text-[#a3a3a3] border-[#3a3a3a] hover:bg-[#262626] hover:text-[#ffffff]'
+    ? 'text-[#ffffff] border-[#3a3a3a] hover:bg-[#262626]'
     : 'text-[#525252] border-[#cfcfcf] hover:bg-[#f5f5f5] hover:text-[#000000]'
   const removeBtn = dark
     ? 'text-[#737373] hover:text-[#f87171] hover:bg-[#450a0a]'
     : 'text-[#8c8c8c] hover:text-[#991b1b] hover:bg-[#fee2e2]'
-  const checkboxStyle = dark ? 'accent-[#10b981]' : 'accent-[#059669]'
+  const checkboxStyle = tk.checkbox
 
   const CopyIcon = () => (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

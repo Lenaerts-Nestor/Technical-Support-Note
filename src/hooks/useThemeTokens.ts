@@ -77,8 +77,8 @@ export function buildTokens(dark: boolean) {
       ? "text-[#d4d4d8] hover:bg-[#262626] hover:text-[#ffffff]"
       : "text-[#3f3f46] hover:bg-[#f4f4f5] hover:text-[#000000]",
     navA: dark
-      ? "bg-[#064e3b] text-[#34d399] border-l-2 border-[#34d399]"
-      : "bg-[#ecfdf5] text-[#059669] border-l-2 border-[#059669]",
+      ? "bg-[#1c1300] text-[#fbbf24] border-l-2 border-[#d97706]"
+      : "bg-[#fffbeb] text-[#b45309] border-l-2 border-[#d97706]",
     navS: dark ? "text-[#a1a1aa]" : "text-[#525252]",
 
     // ── Badges ───────────────────────────────────────────────
@@ -105,6 +105,21 @@ export function buildTokens(dark: boolean) {
       ? "bg-[#262626] text-[#d4d4d8] hover:bg-[#3f3f46] hover:text-[#ffffff]"
       : "bg-[#f4f4f5] text-[#3f3f46] hover:bg-[#e4e4e7] hover:text-[#000000]",
 
+    // ── Shared action buttons (all pages: lang selector, snippets, copy) ──
+    btnActive: dark
+      ? "bg-[#1c1300] text-[#fbbf24] border-[#d97706]"
+      : "bg-[#fffbeb] text-[#b45309] border-[#d97706]",
+    btnInactive: dark
+      ? "bg-[#262626] text-[#ffffff] border-[#3a3a3a] hover:bg-[#3a3a3a]"
+      : "bg-[#f5f5f5] text-[#525252] border-[#cfcfcf] hover:bg-[#e5e5e5] hover:text-[#000000]",
+
+    // ── Focused card accent (VoiceCallPage section cards) ────
+    focusBorderAccent: dark ? "border-l-[#d97706]" : "border-l-[#d97706]",
+    focusTextAccent: dark ? "text-[#fbbf24]" : "text-[#b45309]",
+
+    // ── Checkbox accent ──────────────────────────────────────
+    checkbox: dark ? "accent-[#d97706]" : "accent-[#d97706]",
+
     // ── Accordion ────────────────────────────────────────────
     acc: dark
       ? "bg-[#171717] border border-[#3f3f46] rounded-lg"
@@ -119,8 +134,8 @@ export function buildTokens(dark: boolean) {
     hover: dark ? "hover:bg-[#262626]" : "hover:bg-[#f4f4f5]",
 
     // ── Accent values (used in inline SVG stroke / text) ─────
-    accentText: dark ? "text-[#34d399]" : "text-[#059669]",
-    accentColor: dark ? "#34d399" : "#059669",
+    accentText: dark ? "text-[#fbbf24]" : "text-[#b45309]",
+    accentColor: dark ? "#fbbf24" : "#d97706",
   } as const;
 }
 

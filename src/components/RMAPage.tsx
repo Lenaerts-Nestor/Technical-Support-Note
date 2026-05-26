@@ -117,16 +117,12 @@ export function RMAPage() {
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setFields((prev) => ({ ...prev, [key]: e.target.value }))
 
-  // Styles
-  const accentText = dark ? 'text-[#10b981]' : 'text-[#059669]'
-  const langActive = dark
-    ? 'bg-[#064e3b] text-[#10b981] border-[#10b981]'
-    : 'bg-[#ecfdf5] text-[#059669] border-[#059669]'
-  const langInactive = dark
-    ? 'bg-[#262626] text-[#a3a3a3] border-[#3a3a3a] hover:bg-[#3a3a3a] hover:text-[#ffffff]'
-    : 'bg-[#f5f5f5] text-[#525252] border-[#cfcfcf] hover:bg-[#e5e5e5] hover:text-[#000000]'
+  // Styles — all accent colours come from useThemeTokens so they can be changed centrally
+  const accentText   = tk.focusTextAccent
+  const langActive   = tk.btnActive
+  const langInactive = tk.btnInactive
   const addBtn = dark
-    ? 'text-[#a3a3a3] border-[#3a3a3a] hover:bg-[#262626] hover:text-[#ffffff]'
+    ? 'text-[#ffffff] border-[#3a3a3a] hover:bg-[#262626]'
     : 'text-[#525252] border-[#cfcfcf] hover:bg-[#f5f5f5] hover:text-[#000000]'
   const removeBtn = dark
     ? 'text-[#737373] hover:text-[#f87171] hover:bg-[#450a0a]'
@@ -134,10 +130,7 @@ export function RMAPage() {
 
   const copyBtnClass = (key: string) =>
     `flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border transition-all flex-shrink-0 ${
-      copiedKey === key
-        ? dark ? 'bg-[#064e3b] text-[#10b981] border-[#10b981]' : 'bg-[#ecfdf5] text-[#059669] border-[#059669]'
-        : dark ? 'bg-[#262626] text-[#a3a3a3] border-[#3a3a3a] hover:bg-[#3a3a3a] hover:text-[#ffffff]'
-               : 'bg-[#f5f5f5] text-[#525252] border-[#cfcfcf] hover:bg-[#e5e5e5] hover:text-[#000000]'
+      copiedKey === key ? tk.btnActive : tk.btnInactive
     }`
 
   const askingSentences = ASKING_SENTENCES[language]

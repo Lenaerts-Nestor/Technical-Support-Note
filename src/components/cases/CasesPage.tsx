@@ -7,8 +7,9 @@ import { RMA_ASKING_SENTENCES, RMA_TEMPLATE_BODY } from '../../data/rma'
 
 const LANGUAGES = ['English', 'Dutch', 'Spanish'] as const
 type Lang = typeof LANGUAGES[number]
-const LANG_BADGE: Record<Lang, string> = { English: 'EN', Dutch: 'NL', Spanish: 'ES' }
-const LANG_KEY: Record<Lang, string> = { English: 'English', Dutch: 'Nederlands', Spanish: 'Español' }
+const LANG_BADGE: Record<Lang, string>  = { English: 'EN', Dutch: 'NL', Spanish: 'ES' }
+const LANG_KEY: Record<Lang, string>    = { English: 'English', Dutch: 'Nederlands', Spanish: 'Español' }
+const PANEL_TITLE: Record<Lang, string> = { English: 'Utilities', Dutch: 'Hulpmiddelen', Spanish: 'Utilidades' }
 
 // ── Snippet lookup ────────────────────────────────────────────
 
@@ -63,23 +64,27 @@ function CopyIcon() {
     </svg>
   )
 }
+function ClearIcon() {
+  return (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="3 6 5 6 21 6" />
+      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+      <path d="M10 11v6M14 11v6" />
+    </svg>
+  )
+}
 
 // ── Main component ────────────────────────────────────────────
 
 export function CasesPage() {
-  const { tk, dark } = useTk()
+  const { tk } = useTk()
   const [content, setContent]   = useState('')
   const [copied, setCopied]     = useState(false)
   const [language, setLanguage] = useState<Lang>('English')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-  const accentText   = dark ? 'text-[#10b981]'   : 'text-[#059669]'
-  const accentBg     = dark ? 'bg-[#064e3b]'     : 'bg-[#ecfdf5]'
-  const accentBorder = dark ? 'border-[#10b981]' : 'border-[#059669]'
-  const btnBase = dark
-    ? 'bg-[#262626] text-[#a3a3a3] border-[#3a3a3a] hover:bg-[#3a3a3a] hover:text-[#ffffff]'
-    : 'bg-[#f5f5f5] text-[#525252] border-[#cfcfcf] hover:bg-[#e5e5e5] hover:text-[#000000]'
-  const btnAccent = `${accentBg} ${accentText} ${accentBorder}`
+  const btnAccent = tk.btnActive
+  const btnBase   = tk.btnInactive
 
   const handleCopy = () => {
     navigator.clipboard.writeText(content)
@@ -114,7 +119,14 @@ export function CasesPage() {
 
         {/* ── CENTER: Composer ──────────────────────────────────── */}
         <div className={`flex-1 min-w-0 rounded-xl border flex flex-col overflow-hidden ${tk.panel}`}>
-          <div className={`px-4 pt-3 pb-2 flex-shrink-0 flex items-center justify-end border-b ${tk.brd}`}>
+          <div className={`px-4 pt-3 pb-2 flex-shrink-0 flex items-center justify-end gap-2 border-b ${tk.brd}`}>
+            <button
+              onClick={() => setContent('')}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border transition-all ${btnBase}`}
+            >
+              <ClearIcon />
+              Clear
+            </button>
             <button
               onClick={handleCopy}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold border transition-all ${
@@ -137,9 +149,16 @@ export function CasesPage() {
 
         {/* ── RIGHT: Snippets ───────────────────────────────────── */}
         <div className={`w-80 flex-shrink-0 rounded-xl border flex flex-col overflow-hidden ${tk.panel}`}>
+          {/* Panel title */}
+          <div className={`px-3 pt-3 pb-2 flex-shrink-0 border-b ${tk.brd}`}>
+            <h2 className={`text-sm font-semibold ${tk.tp}`}>{PANEL_TITLE[language]}</h2>
+          </div>
           {/* Language selector */}
           <div className={`px-3 pt-3 pb-2 flex-shrink-0 border-b ${tk.brd}`}>
-            <p className={`text-[10px] font-semibold tracking-widest uppercase mb-2 ${tk.tx}`}>Language</p>
+            <div className="flex items-center gap-2 mb-2">
+              <p className={`text-[10px] font-bold tracking-widest uppercase whitespace-nowrap ${tk.ts}`}>Language</p>
+              <div className={`flex-1 border-t ${tk.brd}`} />
+            </div>
             <div className="flex gap-1">
               {LANGUAGES.map((lang) => (
                 <button
@@ -157,9 +176,12 @@ export function CasesPage() {
           <div className="flex-1 min-h-0 overflow-y-auto px-2 py-2 flex flex-col gap-3">
             {SNIPPET_GROUPS.map((group) => (
               <div key={group.group}>
-                <p className={`text-[10px] font-semibold tracking-wider uppercase px-1 mb-1 ${tk.tx}`}>
-                  {group.group}
-                </p>
+                <div className="flex items-center gap-2 px-1 mb-1.5">
+                  <p className={`text-[10px] font-bold tracking-widest uppercase whitespace-nowrap ${tk.ts}`}>
+                    {group.group}
+                  </p>
+                  <div className={`flex-1 border-t ${tk.brd}`} />
+                </div>
                 <div className="grid grid-cols-2 gap-1">
                   {group.items.map((item) => {
                     const text = item.customText

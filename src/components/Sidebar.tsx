@@ -99,20 +99,8 @@ export function Sidebar({ selected, onSelect, searchQuery, onSearch }: Props) {
     >
       {/* Logo */}
       <div className={`px-4 py-3.5 border-b ${tk.brd} flex-shrink-0`}>
-        <div className="flex items-center gap-2.5">
-          <div
-            className="w-7 h-7 rounded-lg flex items-center justify-center"
-            style={{ background: '#0d9488' }}
-          >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
-          <div>
-            <p className={`text-sm font-semibold leading-tight ${tk.tp}`}>Support Hub</p>
-            <p className={`text-[11px] leading-tight ${tk.ts}`}>Case Dashboard</p>
-          </div>
-        </div>
+        <p className={`text-sm font-semibold leading-tight ${tk.tp}`}>Support Hub</p>
+        <p className={`text-[11px] leading-tight ${tk.ts}`}>Case Dashboard</p>
       </div>
 
       {/* Search */}
