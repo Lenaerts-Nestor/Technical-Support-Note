@@ -22,29 +22,44 @@ type SnippetItem =
   | { label: string; resourceId: string; sectionId: string; customText?: never }
   | { label: string; resourceId?: never; sectionId?: never; customText: (lang: Lang) => string }
 
-// Add a row here to include a new resource in the sidebar — its sections appear automatically
-const AUTO_RESOURCE_GROUPS: { resourceId: string; groupLabel: string }[] = [
-  { resourceId: 'daily-mails',             groupLabel: 'Daily Mails' },
-  { resourceId: 'follow-up-cases',         groupLabel: 'Follow Up'   },
-  { resourceId: 'associate-account-steps', groupLabel: 'Account'     },
-]
-
-// These combine RMA sentences with a template body and can't be derived from resources.ts
-const RMA_ASK_ITEMS: SnippetItem[] = [
-  { label: 'Option 1 – Asking info', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][0]}\n\n${RMA_TEMPLATE_BODY}` },
-  { label: 'Option 2 – Asking info', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][1]}\n\n${RMA_TEMPLATE_BODY}` },
-]
-
 const SNIPPET_GROUPS: { group: string; items: SnippetItem[] }[] = [
-  ...AUTO_RESOURCE_GROUPS.map(({ resourceId, groupLabel }) => ({
-    group: groupLabel,
-    items: (RESOURCES[resourceId]?.sections ?? []).map((s) => ({
-      label: s.title,
-      resourceId,
-      sectionId: s.id,
-    })) as SnippetItem[],
-  })),
-  { group: 'RMA – Asking', items: RMA_ASK_ITEMS },
+  {
+    group: 'Opening',
+    items: [
+      { label: 'Opening mail',      resourceId: 'daily-mails',             sectionId: 'general-inquiry'   },
+      { label: 'Associate Account', resourceId: 'associate-account-steps', sectionId: 'associate-account' },
+    ],
+  },
+  {
+    group: 'Diagnostics',
+    items: [
+      { label: 'Asking More Info', resourceId: 'daily-mails', sectionId: 'asking-more-information'   },
+      { label: 'Issue Summary',    resourceId: 'daily-mails', sectionId: 'issue-description-request' },
+      { label: 'Remote Session',   resourceId: 'daily-mails', sectionId: 'remote-session'            },
+      { label: 'Uploader Link',    resourceId: 'daily-mails', sectionId: 'uploader-link'             },
+      { label: 'Info Gathering',   resourceId: 'daily-mails', sectionId: 'info-gathering-tool'       },
+    ],
+  },
+  {
+    group: 'RMA',
+    items: [
+      { label: 'Option 1 – Asking', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][0]}\n\n${RMA_TEMPLATE_BODY}` },
+      { label: 'Option 2 – Asking', customText: (lang) => `${RMA_ASKING_SENTENCES[lang][1]}\n\n${RMA_TEMPLATE_BODY}` },
+      { label: 'Approving RMA',     resourceId: 'daily-mails', sectionId: 'approving-rma'  },
+      { label: 'Direct RMA',        resourceId: 'daily-mails', sectionId: 'direct-rma'     },
+      { label: 'NPF',               resourceId: 'daily-mails', sectionId: 'no-fault-found' },
+    ],
+  },
+  {
+    group: 'Follow Up',
+    items: [
+      { label: '1st Follow Up',         resourceId: 'follow-up-cases', sectionId: 'first-follow-up'    },
+      { label: '2nd Follow Up',         resourceId: 'follow-up-cases', sectionId: 'second-follow-up'   },
+      { label: '3rd Follow Up / Close', resourceId: 'follow-up-cases', sectionId: 'third-follow-up'    },
+      { label: 'Closing Case',          resourceId: 'daily-mails',     sectionId: 'closing-case'        },
+      { label: 'Technician On Leave',   resourceId: 'daily-mails',     sectionId: 'technician-onleave' },
+    ],
+  },
 ]
 
 // ── Icons ─────────────────────────────────────────────────────

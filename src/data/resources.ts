@@ -6,7 +6,6 @@ import type { Resource } from "../types";
 // ============================================================
 
 export const RESOURCES: Record<string, Resource> = {
-
   "daily-mails": {
     id: "daily-mails",
     name: "Daily Mails Response",
@@ -130,7 +129,8 @@ Una vez que se haya creado el RMA, esta caso se actualizará con la información
         id: "asking-more-information",
         title: "Asking More Information",
         icon: "mail",
-        description: "Use when you need additional details to better investigate the issue",
+        description:
+          "Use when you need additional details to better investigate the issue",
         templates: [
           {
             language: "English",
@@ -188,7 +188,8 @@ Como sus preguntas han sido respondidas, procederé a marcar el caso como resuel
         id: "remote-session",
         title: "Remote Troubleshooting Session",
         icon: "mail",
-        description: "Use when proposing a remote session to diagnose the issue",
+        description:
+          "Use when proposing a remote session to diagnose the issue",
         templates: [
           {
             language: "English",
@@ -220,7 +221,8 @@ Nota: para la sesión remota utilizaremos TeamViewer.`,
         id: "approving-rma",
         title: "Approving RMA",
         icon: "mail",
-        description: "Use after receiving the customer's device info to confirm RMA will be created",
+        description:
+          "Use after receiving the customer's device info to confirm RMA will be created",
         templates: [
           {
             language: "English",
@@ -250,9 +252,10 @@ Una vez que la RMA haya sido creada, este caso se actualizará con la informaci�
       },
       {
         id: "no-fault-found",
-        title: "No Fault Found",
+        title: "NPF (No Problem Found)",
         icon: "mail",
-        description: "Use when the returned unit could not reproduce the reported issue",
+        description:
+          "Use when the returned unit could not reproduce the reported issue",
         templates: [
           {
             language: "English",
@@ -296,7 +299,8 @@ Gracias.`,
         id: "uploader-link",
         title: "Uploader Link",
         icon: "mail",
-        description: "Share the Crestron uploader credentials for file submission",
+        description:
+          "Share the Crestron uploader credentials for file submission",
         templates: [
           {
             language: "English",
@@ -328,7 +332,8 @@ Contraseña: C2874&374nu!`,
         id: "info-gathering-tool",
         title: "Crestron Info Gathering Tool",
         icon: "mail",
-        description: "Instructions for running the ATSG diagnostic tool and uploading logs",
+        description:
+          "Instructions for running the ATSG diagnostic tool and uploading logs",
         templates: [
           {
             language: "English",
@@ -399,7 +404,8 @@ Instrucciones:
         id: "issue-description-request",
         title: "Issue & Troubleshooting Summary",
         icon: "mail",
-        description: "Ask the customer to describe their problem and steps already attempted",
+        description:
+          "Ask the customer to describe their problem and steps already attempted",
         templates: [
           {
             language: "English",
