@@ -1,15 +1,13 @@
-import { PRODUCTS } from "../data/products/index";
 import { RESOURCES } from "../data/resources";
-import { GUIDES } from "../data/guides";
+
 import { useTk } from "../hooks/useThemeTokens";
 
 export function WelcomePage() {
   const { tk } = useTk();
 
   const stats = [
-    { label: "Products", value: Object.keys(PRODUCTS).length },
     { label: "Resources", value: Object.keys(RESOURCES).length },
-    { label: "Guides", value: Object.keys(GUIDES).length },
+  
   ];
 
   const tips = [

@@ -1,5 +1,4 @@
 import type { NavItem } from '../types'
-import { PRODUCTS } from '../data/products/index'
 import { useTk } from '../hooks/useThemeTokens'
 import { useThemeToggle, useIconColors } from '../context/ThemeContext'
 
@@ -24,9 +23,6 @@ export function TopBar({ selected }: Props) {
             : selected?.type === 'voicecall'
               ? null
               : null
-
-  const partNumber = selected?.type === 'product' ? PRODUCTS[selected.id]?.partNumber : null
-  const docsUrl = selected?.type === 'product' ? PRODUCTS[selected.id]?.docsUrl : null
 
   return (
     <header
@@ -58,37 +54,7 @@ export function TopBar({ selected }: Props) {
 
       {/* Right actions */}
       <div className="flex items-center gap-2">
-        {partNumber && (
-          <span className={`text-xs px-2.5 py-1 rounded-md font-mono font-medium ${tk.bdg}`}>
-            {partNumber}
-          </span>
-        )}
-        {docsUrl && (
-          <a
-            href={docsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md font-medium transition-colors border ${
-              dark
-                ? 'bg-[#21262d] text-[#7d8590] border-[#30363d] hover:text-[#e6edf3] hover:bg-[#30363d]'
-                : 'bg-[#f2f1ed] text-[#6b6560] border-[#e5e2dc] hover:bg-[#e5e2dc] hover:text-[#1a1714]'
-            }`}
-          >
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-            Crestron Docs
-          </a>
-        )}
+       
 
         {/* Theme toggle */}
         <button

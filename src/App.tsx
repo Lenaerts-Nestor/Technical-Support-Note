@@ -4,9 +4,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import { useTk } from './hooks/useThemeTokens'
 import { Sidebar } from './components/Sidebar'
 import { TopBar } from './components/TopBar'
-import { ProductPage } from './components/product/ProductPage'
 import { ResourcePage } from './components/resource/ResourcePage'
-import { GuidePage } from './components/guide/GuidePage'
 import { WelcomePage } from './components/WelcomePage'
 import { VoiceCallPage } from './components/VoiceCallPage'
 import { RMAPage } from './components/RMAPage'
@@ -28,11 +26,8 @@ function AppInner() {
     if (selected.type === 'voicecall') return <VoiceCallPage key={selected.id} />
     if (selected.type === 'rma') return <RMAPage key={selected.id} />
     if (selected.type === 'cases') return <CasesPage />
-    if (selected.type === 'product') {
-      return <ProductPage key={selected.id} productId={selected.id} />
-    }
+ 
     if (selected.type === 'resource') return <ResourcePage key={selected.id} resourceId={selected.id} />
-    if (selected.type === 'guide') return <GuidePage key={selected.id} guideId={selected.id} />
     return null
   }
 

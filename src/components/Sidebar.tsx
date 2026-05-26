@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import type { NavItem } from '../types'
 import { NAV, PINNED } from '../data/navigation'
-import { PRODUCTS } from '../data/products/index'
-import { RESOURCES } from '../data/resources'
+
 import { useTk } from '../hooks/useThemeTokens'
 
 interface Props {
@@ -67,8 +66,8 @@ function pinnedIcon(type: NavItem['type']) {
 export function Sidebar({ selected, onSelect, searchQuery, onSearch }: Props) {
   const { tk } = useTk()
 
-  const totalProducts = Object.keys(PRODUCTS).length
-  const totalResources = Object.keys(RESOURCES).length
+
+
 
   // Track which sections are collapsed (only applicable when section has >2 items)
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set())
@@ -224,12 +223,7 @@ export function Sidebar({ selected, onSelect, searchQuery, onSearch }: Props) {
         })}
       </nav>
 
-      {/* Footer */}
-      <div className={`px-4 py-2 border-t ${tk.brd} flex-shrink-0`}>
-        <p className={`text-[11px] ${tk.tx}`}>
-          {totalProducts} products · {totalResources} resources
-        </p>
-      </div>
+    
     </aside>
   )
 }

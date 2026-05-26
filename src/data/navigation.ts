@@ -17,7 +17,7 @@ export const NAV: NavSection[] = [
   {
     section: "RESOURCES",
     items: [
-      { id: "case-routing", label: "Case Routing", type: "resource" },
+      
       { id: "daily-mails", label: "Daily Mails Response", type: "resource" },
       { id: "follow-up-cases", label: "Follow Up Cases", type: "resource" },
       {
@@ -27,25 +27,5 @@ export const NAV: NavSection[] = [
       },
     ],
   },
-  {
-    section: "PRODUCTS",
-    items: [
-      { id: "tsr-310", label: "TSR-310", type: "product" },
-      { id: "tsw-1070", label: "TSW-1070", type: "product" },
-      { id: "tsw-770", label: "TSW-770", type: "product" },
-      { id: "tsw-570", label: "TSW-570", type: "product" },
-    ],
-  },
-  {
-    section: "STEP-BY-STEP GUIDES",
-    items: [
-      { id: "npf-procedure", label: "NPF Procedure", type: "guide" },
-      { id: "vt-pro-e-upload", label: "VT Pro-e Upload", type: "guide" },
-      {
-        id: "toolbox-diagnostics",
-        label: "Toolbox Diagnostics",
-        type: "guide",
-      },
-    ],
-  },
+ 
 ];
