@@ -2,7 +2,7 @@
 // SHARED
 // ============================================================
 
-export type ItemType = "product" | "resource" | "guide" | "overview" | "voicecall" | "rma" | "cases";
+export type ItemType = "resource" | "overview" | "voicecall" | "rma" | "cases";
 
 export interface NavItem {
   id: string;
@@ -13,65 +13,6 @@ export interface NavItem {
 export interface NavSection {
   section: string;
   items: NavItem[];
-}
-
-// ============================================================
-// PRODUCT
-// ============================================================
-
-export interface QuickRefItem {
-  label: string;
-  value: string;
-}
-
-export interface ResetMethod {
-  /** null = no sub-title needed (single method) */
-  title: string | null;
-  steps: string[];
-}
-
-export interface FactoryReset {
-  methods: ResetMethod[];
-}
-
-export interface PhysicalButtonReset {
-  methods: ResetMethod[];
-}
-
-export interface DeviceManagement {
-  factoryReset: FactoryReset;
-  /** null = device has no physical reset button */
-  physicalButtonReset: PhysicalButtonReset | null;
-}
-
-export interface FirmwareUpdate {
-  title: string | null;
-  steps: string[];
-}
-
-export interface CommonProblem {
-  problem: string;
-  solutions: string[];
-}
-
-export interface ProductLink {
-  title: string;
-  url: string;
-  description?: string;
-}
-
-export interface Product {
-  id: string;
-  name: string;
-  subtitle: string;
-  partNumber: string;
-  docsUrl: string;
-  category: "remote-control" | "touch-panels" | "processors" | "other";
-  quickRef: QuickRefItem[];
-  deviceManagement: DeviceManagement;
-  firmwareUpdate: FirmwareUpdate;
-  commonProblems: CommonProblem[];
-  links: ProductLink[];
 }
 
 // ============================================================
@@ -114,38 +55,3 @@ export interface Resource {
   sections: ResourceSection[];
 }
 
-// ============================================================
-// GUIDE (step-by-step)
-// ============================================================
-
-export type GuideDifficulty = "Beginner" | "Intermediate" | "Advanced";
-
-export interface GuideStep {
-  id: string;
-  title: string;
-  description: string;
-  /** optional screenshot shown above description */
-  imageSrc?: string | null;
-  /** optional large text block shown instead of an image */
-  bigText?: string;
-  /** null = no tip for this step */
-  tip: string | null;
-}
-
-export interface GuideSection {
-  id: string;
-  title: string;
-  description: string;
-  steps: GuideStep[];
-}
-
-export interface Guide {
-  id: string;
-  name: string;
-  subtitle: string;
-  initials: string;
-  color: string;
-  difficulty: GuideDifficulty;
-  timeEstimate: string;
-  sections: GuideSection[];
-}

@@ -12,17 +12,9 @@ export function TopBar({ selected }: Props) {
   const { sunColor, moonColor } = useIconColors()
 
   const sectionLabel =
-    selected?.type === 'product'
-      ? 'Products'
-      : selected?.type === 'resource'
-        ? 'Resources'
-        : selected?.type === 'guide'
-          ? 'Guides'
-          : selected?.type === 'overview'
-            ? null
-            : selected?.type === 'voicecall'
-              ? null
-              : null
+    selected?.type === 'resource'
+      ? 'Resources'
+      : null
 
   return (
     <header

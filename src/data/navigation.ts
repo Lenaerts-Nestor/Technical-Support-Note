@@ -1,10 +1,5 @@
 import type { NavItem, NavSection } from "../types";
 
-// ============================================================
-// ADD NEW NAV ITEMS HERE when you add a new product/resource/guide.
-// type must match the key used in PRODUCTS, RESOURCES, or GUIDES.
-// ============================================================
-
 // Pinned items rendered at the very top of the sidebar (no section header)
 export const PINNED: NavItem[] = [
   { id: "overview", label: "Overview", type: "overview" },

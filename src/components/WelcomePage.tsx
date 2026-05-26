@@ -11,11 +11,10 @@ export function WelcomePage() {
   ];
 
   const tips = [
-    "Click any product in the sidebar to view specs, device management, and troubleshooting steps.",
-    "Use the Copy button on troubleshooting solutions to instantly paste them into client emails.",
+    "Use the Copy button on templates to instantly paste them into client emails.",
     "Resources contain pre-written email templates in English, Nederlands, and Español.",
-    "Step-by-step guides walk through procedures like SIMPL Windows uploads and Toolbox diagnostics.",
-    "Add new products by editing src/data/products.ts — no UI component changes needed.",
+    "Cases lets you compose emails using pre-written snippets with language switching.",
+    "RMA provides sentence templates and a detail form for return merchandise requests.",
   ];
 
   return (
