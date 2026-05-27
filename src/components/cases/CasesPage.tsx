@@ -27,6 +27,7 @@ const SNIPPET_GROUPS: { group: string; items: SnippetItem[] }[] = [
     group: 'Opening',
     items: [
       { label: 'Opening mail',      resourceId: 'daily-mails',             sectionId: 'general-inquiry'   },
+      { label: 'Opening mail call', resourceId: 'daily-mails',             sectionId: 'general-inquiry-call' },
       { label: 'Associate Account', resourceId: 'associate-account-steps', sectionId: 'associate-account' },
     ],
   },

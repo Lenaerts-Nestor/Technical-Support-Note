@@ -26,9 +26,42 @@ export const RESOURCES: Record<string, Resource> = {
 Thank you for contacting Crestron's True Blue Support Team!
 Case {!Case.CaseNumber} has been created for this issue.
  
-As discussed during our call,
+Should you have any other query, please do not hesitate to contact us. Thank you.`,
+          },
+          {
+            language: "Nederlands",
+            content: `Beste {!Contact.FirstName},
  
-For further reference, could you please provide us with a Project name or reference.
+Bedankt om contact op te nemen met Crestron's True Blue Support Team!
+Case {!Case.CaseNumber} werd aangemaakt voor dit probleem.
+ 
+Twijfel zeker niet om ons te contacteren indien u verdere vragen heeft. Alvast bedankt.`,
+          },
+          {
+            language: "Español",
+            content: `Estimado/a {!Contact.FirstName},
+Gracias por ponerse en contacto con el equipo de soporte True Blue de Crestron.
+El caso {!Case.CaseNumber} ha sido creado para este problema.
+
+No dude en contactarnos si tiene más preguntas. Muchas gracias.`,
+          },
+        ],
+      },
+
+      {
+        id: "general-inquiry-call",
+        title: "Opening Email Call",
+        icon: "mail",
+        description: "Use this version when the opening email follows a call",
+        templates: [
+          {
+            language: "English",
+            content: `Hi {!Contact.FirstName},
+
+Thank you for contacting Crestron's True Blue Support Team!
+Case {!Case.CaseNumber} has been created for this issue.
+ 
+As discussed during our call,
  
 Should you have any other query, please do not hesitate to contact us. Thank you.`,
           },
@@ -41,8 +74,6 @@ Case {!Case.CaseNumber} werd aangemaakt voor dit probleem.
  
 Zoals besproken aan de telefoon/Zoals telefonisch besproken,
  
-Voor verdere referentie, zou u ons een projectnaam of referentie kunnen bezorgen
- 
 Twijfel zeker niet om ons te contacteren indien u verdere vragen heeft. Alvast bedankt.`,
           },
           {
@@ -52,8 +83,6 @@ Gracias por ponerse en contacto con el equipo de soporte True Blue de Crestron.
 El caso {!Case.CaseNumber} ha sido creado para este problema.
 
 Tal como se habló por teléfono,
-
-Para futuras referencias, ¿podría facilitarnos un nombre o referencia de proyecto?
 
 No dude en contactarnos si tiene más preguntas. Muchas gracias.`,
           },
